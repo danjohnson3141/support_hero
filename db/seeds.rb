@@ -2,16 +2,16 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 heroes = [
-	{first_name: 'Sherry', last_name: 'Sherrison', title: 'Suport Hero III', bio: 'Support specialist for over 20 years.'},
+	{first_name: 'Sherry', last_name: 'Turkle', title: 'Suport Hero III', bio: 'Currently the Abby Rockefeller Mauzé Professor of the Social Studies of Science and Technology at the Massachusetts Institute of Technology.'},
 	{first_name: 'Boris', last_name: 'Karloff', title: 'Suport Hero II', bio: 'Boris Karloff was an English-born actor who played the monster in Frankenstein and became synonymous with horror films of the 1930s.'},
 	{first_name: 'Vicente', last_name: 'Fox', title: 'Suport Hero Manager', bio: 'Vicente Fox Quesada is a Mexican businessman who was President of Mexico from 1 December 2000, to 30 November 2006 under the National Action Party.'},
-	{first_name: 'Matte', last_name: 'Smith', title: 'Time Lord', bio: ''},
-	{first_name: 'Kevin', last_name: 'Smith', title: 'Support Hero I', bio: ''},
-	{first_name: 'Zoe', last_name: 'Smith', title: 'Support Hero I', bio: ''},
-	{first_name: 'Jay', last_name: 'Jonah Jameson', title: 'Staff Writer', bio: ''},
-	{first_name: 'Eadon', last_name: 'Smith', title: 'Support Hero I', bio: ''},
-	{first_name: 'Franky', last_name: 'Stien', title: 'Support Hero IV', bio: ''},
-	{first_name: 'Luis', last_name: 'CK', title: 'Support Hero I', bio: 'Support team comic support.'},
+	{first_name: 'Matte', last_name: 'Smith', title: 'Time Lord', bio: 'Also known as "The Doctor". He enjoys travelling in space and time as well. '},
+	{first_name: 'Kevin', last_name: 'Smith', title: 'Super Hero', bio: 'Go-to authority on all things Batman'},
+	{first_name: 'Zoe', last_name: 'Muppet', title: 'Children Support Specialist', bio: 'Zoe loves to dance and has a wild imagination! Learn more about her at her Muppet page.'},
+	{first_name: 'Jay', last_name: 'Jonah Jameson', title: 'Staff Writer', bio: 'Grumpy newspaper editor.'},
+	{first_name: 'Eadon', last_name: 'Jacobs', title: 'Support Hero I', bio: 'Founder at Plannit'},
+	{first_name: 'Franky', last_name: 'Stien', title: 'Support Hero IV', bio: 'Good friend of Boris'},
+	{first_name: 'Luis', last_name: 'CK', title: 'Support Hero I', bio: 'Support team comic releif.'},
 ]
 
 puts 'Seeding heroes...'

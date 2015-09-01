@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe "HeroSchedules", type: :request do
   describe "GET /hero_schedules" do

@@ -1,11 +1,13 @@
 FactoryGirl.define do
   factory :hero do
-    first_name "MyString"
-last_name "MyString"
-title "MyString"
-bio "MyText"
-created_by 1
-updated_by 1
-  end
+    sequence(:first_name) { |n| "First #{n}" }
+    sequence(:last_name) { |n| "Last #{n}" }
 
+    trait :random do
+      first_name { Faker::Team.creature }
+      last_name { Faker::Team.creature }
+      title  { Faker::Team.creature.titleize }
+      bio { Faker::Lorem.paragraph(3) }
+    end
+  end
 end

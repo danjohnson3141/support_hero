@@ -863,3 +863,1135 @@ Started GET "/heroes" for ::1 at 2015-08-31 21:55:19 -0700
 Processing by HeroesController#index as */*
   [1m[35mHero Load (0.7ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
 Completed 200 OK in 21ms (Views: 11.1ms | ActiveRecord: 4.2ms)
+  [1m[36m (11.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateHeroes (20150831210232)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "heroes" ("id" serial primary key, "first_name" character varying(100), "last_name" character varying(100), "title" character varying, "bio" text, "created_by" integer, "updated_by" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_heroes_on_created_by" ON "heroes"  ("created_by")
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_heroes_on_updated_by" ON "heroes"  ("updated_by")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150831210232"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateHeroSchedules (20150901032623)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "hero_schedules" ("id" serial primary key, "scheduled_on" date, "hero_id" integer, "created_by" integer, "updated_by" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_hero_schedules_on_hero_id" ON "hero_schedules"  ("hero_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_hero_schedules_on_created_by" ON "hero_schedules"  ("created_by")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_hero_schedules_on_updated_by" ON "hero_schedules"  ("updated_by")
+  [1m[36m (3.0ms)[0m  [1mALTER TABLE "hero_schedules" ADD CONSTRAINT "fk_rails_9ac3406570"
+FOREIGN KEY ("hero_id")
+  REFERENCES "heroes" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150901032623"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'hero_schedules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'heroes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/heros/1" for ::1 at 2015-09-01 12:13:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/heros/1"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (45.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (99.7ms)
+
+
+Started GET "/heroes/" for ::1 at 2015-09-01 12:14:38 -0700
+Processing by HeroesController#index as */*
+  [1m[35mHero Load (1.7ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/heroes/1" for ::1 at 2015-09-01 12:14:41 -0700
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `class_name' for #<Class:0x007f906443eb70>):
+  app/controllers/concerns/object_setters.rb:12:in `get_param_value'
+  app/controllers/concerns/object_setters.rb:5:in `set_object'
+  app/controllers/heroes_controller.rb:3:in `block in <class:HeroesController>'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (37.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (83.5ms)
+
+
+Started GET "/heroes/1" for ::1 at 2015-09-01 12:26:08 -0700
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 19ms
+
+ActiveRecord::RecordNotFound (Couldn't find Hero with 'id'=1):
+  app/controllers/concerns/object_setters.rb:6:in `set_object'
+  app/controllers/heroes_controller.rb:3:in `block in <class:HeroesController>'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (40.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (88.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mHero Load (0.5ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Sherry"], ["last_name", "Sherrison"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Sherry"], ["last_name", "Sherrison"], ["created_at", "2015-09-01 19:26:29.513102"], ["updated_at", "2015-09-01 19:26:29.513102"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Suport Hero III"], ["bio", "Support specialist for over 20 years."], ["updated_at", "2015-09-01 19:26:29.516140"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Boris"], ["last_name", "Karloff"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Boris"], ["last_name", "Karloff"], ["created_at", "2015-09-01 19:26:29.519512"], ["updated_at", "2015-09-01 19:26:29.519512"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Suport Hero II"], ["bio", "Boris Karloff was an English-born actor who played the monster in Frankenstein and became synonymous with horror films of the 1930s."], ["updated_at", "2015-09-01 19:26:29.521084"], ["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Vicente"], ["last_name", "Fox"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Vicente"], ["last_name", "Fox"], ["created_at", "2015-09-01 19:26:29.523152"], ["updated_at", "2015-09-01 19:26:29.523152"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Suport Hero Manager"], ["bio", "Vicente Fox Quesada is a Mexican businessman who was President of Mexico from 1 December 2000, to 30 November 2006 under the National Action Party."], ["updated_at", "2015-09-01 19:26:29.524881"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Matte"], ["last_name", "Smith"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Matte"], ["last_name", "Smith"], ["created_at", "2015-09-01 19:26:29.528149"], ["updated_at", "2015-09-01 19:26:29.528149"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Time Lord"], ["bio", ""], ["updated_at", "2015-09-01 19:26:29.530726"], ["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Kevin"], ["last_name", "Smith"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Kevin"], ["last_name", "Smith"], ["created_at", "2015-09-01 19:26:29.533321"], ["updated_at", "2015-09-01 19:26:29.533321"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Support Hero I"], ["bio", ""], ["updated_at", "2015-09-01 19:26:29.534933"], ["id", 5]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Zoe"], ["last_name", "Smith"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Zoe"], ["last_name", "Smith"], ["created_at", "2015-09-01 19:26:29.536977"], ["updated_at", "2015-09-01 19:26:29.536977"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Support Hero I"], ["bio", ""], ["updated_at", "2015-09-01 19:26:29.538507"], ["id", 6]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Jay"], ["last_name", "Jonah Jameson"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Jay"], ["last_name", "Jonah Jameson"], ["created_at", "2015-09-01 19:26:29.540568"], ["updated_at", "2015-09-01 19:26:29.540568"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Staff Writer"], ["bio", ""], ["updated_at", "2015-09-01 19:26:29.542305"], ["id", 7]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Eadon"], ["last_name", "Smith"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Eadon"], ["last_name", "Smith"], ["created_at", "2015-09-01 19:26:29.544171"], ["updated_at", "2015-09-01 19:26:29.544171"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Support Hero I"], ["bio", ""], ["updated_at", "2015-09-01 19:26:29.545787"], ["id", 8]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Franky"], ["last_name", "Stien"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Franky"], ["last_name", "Stien"], ["created_at", "2015-09-01 19:26:29.547645"], ["updated_at", "2015-09-01 19:26:29.547645"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Support Hero IV"], ["bio", ""], ["updated_at", "2015-09-01 19:26:29.549267"], ["id", 9]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Luis"], ["last_name", "CK"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Luis"], ["last_name", "CK"], ["created_at", "2015-09-01 19:26:29.551259"], ["updated_at", "2015-09-01 19:26:29.551259"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Support Hero I"], ["bio", "Support team comic support."], ["updated_at", "2015-09-01 19:26:29.552821"], ["id", 10]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-09-01"], ["created_at", "2015-09-01 19:26:29.569495"], ["updated_at", "2015-09-01 19:26:29.569495"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 2], ["scheduled_on", "2015-09-02"], ["created_at", "2015-09-01 19:26:29.574538"], ["updated_at", "2015-09-01 19:26:29.574538"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.4ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Vicente"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 3], ["scheduled_on", "2015-09-03"], ["created_at", "2015-09-01 19:26:29.577805"], ["updated_at", "2015-09-01 19:26:29.577805"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-04"], ["created_at", "2015-09-01 19:26:29.581267"], ["updated_at", "2015-09-01 19:26:29.581267"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Jack"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-06"], ["created_at", "2015-09-01 19:26:29.584573"], ["updated_at", "2015-09-01 19:26:29.584573"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-09-07"], ["created_at", "2015-09-01 19:26:29.587152"], ["updated_at", "2015-09-01 19:26:29.587152"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-08"], ["created_at", "2015-09-01 19:26:29.589624"], ["updated_at", "2015-09-01 19:26:29.589624"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-09"], ["created_at", "2015-09-01 19:26:29.591844"], ["updated_at", "2015-09-01 19:26:29.591844"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Vicente"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 3], ["scheduled_on", "2015-09-10"], ["created_at", "2015-09-01 19:26:29.593875"], ["updated_at", "2015-09-01 19:26:29.593875"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Zoe"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 6], ["scheduled_on", "2015-09-11"], ["created_at", "2015-09-01 19:26:29.595906"], ["updated_at", "2015-09-01 19:26:29.595906"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-12"], ["created_at", "2015-09-01 19:26:29.598075"], ["updated_at", "2015-09-01 19:26:29.598075"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-09-13"], ["created_at", "2015-09-01 19:26:29.600236"], ["updated_at", "2015-09-01 19:26:29.600236"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Zoe"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 6], ["scheduled_on", "2015-09-14"], ["created_at", "2015-09-01 19:26:29.602237"], ["updated_at", "2015-09-01 19:26:29.602237"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Jay"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 7], ["scheduled_on", "2015-09-15"], ["created_at", "2015-09-01 19:26:29.604588"], ["updated_at", "2015-09-01 19:26:29.604588"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Boris"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-09-16"], ["created_at", "2015-09-01 19:26:29.606744"], ["updated_at", "2015-09-01 19:26:29.606744"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Eadon"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 8], ["scheduled_on", "2015-09-17"], ["created_at", "2015-09-01 19:26:29.610373"], ["updated_at", "2015-09-01 19:26:29.610373"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-18"], ["created_at", "2015-09-01 19:26:29.613498"], ["updated_at", "2015-09-01 19:26:29.613498"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Franky"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 9], ["scheduled_on", "2015-09-19"], ["created_at", "2015-09-01 19:26:29.615446"], ["updated_at", "2015-09-01 19:26:29.615446"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-20"], ["created_at", "2015-09-01 19:26:29.617369"], ["updated_at", "2015-09-01 19:26:29.617369"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-09-21"], ["created_at", "2015-09-01 19:26:29.619347"], ["updated_at", "2015-09-01 19:26:29.619347"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Franky"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 9], ["scheduled_on", "2015-09-22"], ["created_at", "2015-09-01 19:26:29.621436"], ["updated_at", "2015-09-01 19:26:29.621436"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Franky"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 9], ["scheduled_on", "2015-09-23"], ["created_at", "2015-09-01 19:26:29.623510"], ["updated_at", "2015-09-01 19:26:29.623510"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-24"], ["created_at", "2015-09-01 19:26:29.625407"], ["updated_at", "2015-09-01 19:26:29.625407"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Boris"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-09-25"], ["created_at", "2015-09-01 19:26:29.627535"], ["updated_at", "2015-09-01 19:26:29.627535"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Franky"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 9], ["scheduled_on", "2015-09-26"], ["created_at", "2015-09-01 19:26:29.629533"], ["updated_at", "2015-09-01 19:26:29.629533"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Vicente"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 3], ["scheduled_on", "2015-09-27"], ["created_at", "2015-09-01 19:26:29.631681"], ["updated_at", "2015-09-01 19:26:29.631681"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Luis"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 10], ["scheduled_on", "2015-09-28"], ["created_at", "2015-09-01 19:26:29.634360"], ["updated_at", "2015-09-01 19:26:29.634360"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Eadon"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 8], ["scheduled_on", "2015-09-29"], ["created_at", "2015-09-01 19:26:29.636527"], ["updated_at", "2015-09-01 19:26:29.636527"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Boris"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-09-30"], ["created_at", "2015-09-01 19:26:29.638932"], ["updated_at", "2015-09-01 19:26:29.638932"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-10-01"], ["created_at", "2015-09-01 19:26:29.642097"], ["updated_at", "2015-09-01 19:26:29.642097"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-10-02"], ["created_at", "2015-09-01 19:26:29.644772"], ["updated_at", "2015-09-01 19:26:29.644772"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Jay"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 7], ["scheduled_on", "2015-10-03"], ["created_at", "2015-09-01 19:26:29.647320"], ["updated_at", "2015-09-01 19:26:29.647320"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "James"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-10-05"], ["created_at", "2015-09-01 19:26:29.650368"], ["updated_at", "2015-09-01 19:26:29.650368"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-10-06"], ["created_at", "2015-09-01 19:26:29.652804"], ["updated_at", "2015-09-01 19:26:29.652804"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-10-07"], ["created_at", "2015-09-01 19:26:29.654999"], ["updated_at", "2015-09-01 19:26:29.654999"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Jack"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-10-09"], ["created_at", "2015-09-01 19:26:29.657397"], ["updated_at", "2015-09-01 19:26:29.657397"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Jack"]]
+
+
+Started GET "/heroes/1" for ::1 at 2015-09-01 12:26:33 -0700
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mHero Load (0.7ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/heroes/13" for ::1 at 2015-09-01 12:27:01 -0700
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 13]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Hero with 'id'=13):
+  app/controllers/concerns/object_setters.rb:6:in `set_object'
+  app/controllers/heroes_controller.rb:3:in `block in <class:HeroesController>'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (38.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (84.3ms)
+
+
+Started GET "/admin/sponsors/64185555" for ::1 at 2015-09-01 12:30:45 -0700
+
+ActionController::RoutingError (No route matches [GET] "/admin/sponsors/64185555"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (78.8ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f90651c7580 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f90651c6ef0 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f90651be598 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started GET "/heroes" for ::1 at 2015-09-01 12:49:33 -0700
+Processing by HeroesController#index as */*
+  [1m[35mHero Load (0.4ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+Completed 500 Internal Server Error in 10ms
+
+NoMethodError (undefined method `hero_sechedules' for #<Hero:0x007f90646e2ef8>):
+  app/controllers/heroes_controller.rb:8:in `index'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (37.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (89.4ms)
+
+
+Started GET "/heroes" for ::1 at 2015-09-01 12:50:08 -0700
+Processing by HeroesController#index as */*
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+Completed 500 Internal Server Error in 10ms
+
+NoMethodError (undefined method `hero_sechedules' for #<Hero:0x007f906690cb00>):
+  app/controllers/heroes_controller.rb:8:in `index'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (36.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (80.1ms)
+  [1m[36mHero Load (1.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes"  ORDER BY "heroes"."id" ASC LIMIT 1[0m
+  [1m[35mHero Load (0.7ms)[0m  SELECT  "heroes".* FROM "heroes"  ORDER BY "heroes"."id" ASC LIMIT 1
+  [1m[36mHeroSchedule Load (0.5ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 1]]
+
+
+Started GET "/heroes" for ::1 at 2015-09-01 12:51:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HeroesController#index as */*
+  [1m[35mHero Load (1.1ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError (undefined method `hero_sechedules' for #<Hero:0x007ff682dc2ff0>):
+  app/controllers/heroes_controller.rb:8:in `index'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (36.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (85.3ms)
+
+
+Started GET "/heroes" for ::1 at 2015-09-01 12:51:43 -0700
+Processing by HeroesController#index as */*
+  [1m[36mHero Load (0.6ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.5ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 10]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 3]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 7]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 2]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 1]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 8]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 5]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 4]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 6]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 9]]
+Completed 200 OK in 51ms (Views: 41.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 13:45:38 -0700
+Processing by HeroSchedulesController#index as */*
+Completed 500 Internal Server Error in 19ms
+
+ActionView::MissingTemplate (Missing template hero_schedules/index, application/index with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/danjohnson/development/rails/support_hero/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (74.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (45.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (94.3ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 13:47:01 -0700
+Processing by HeroSchedulesController#index as */*
+Completed 500 Internal Server Error in 17ms
+
+ActionView::MissingTemplate (Missing template hero_schedules/index, application/index with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/danjohnson/development/rails/support_hero/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (60.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (39.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (86.3ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 13:47:32 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"
+  Rendered hero_schedules/index.html.erb (32.1ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined local variable or method `notice' for #<#<Class:0x007ff68b05b6d8>:0x007ff682d70f48>):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1>Listing Hero Schedules</h1>
+    4: 
+  app/views/hero_schedules/index.html.erb:1:in `_app_views_hero_schedules_index_html_erb__3139626031399272280_70348366893940'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (39.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (90.8ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 13:48:09 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[36mHeroSchedule Load (0.4ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"[0m
+  Rendered hero_schedules/index.html.erb (30.0ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined local variable or method `notice' for #<#<Class:0x007ff68b05b6d8>:0x007ff688b4beb0>):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1>Listing Hero Schedules</h1>
+    4: 
+  app/views/hero_schedules/index.html.erb:1:in `_app_views_hero_schedules_index_html_erb__3139626031399272280_70348416111080'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (38.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (91.1ms)
+
+
+Started GET "/heroes" for ::1 at 2015-09-01 13:59:02 -0700
+Processing by HeroesController#index as */*
+  [1m[35mHero Load (0.4ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 10]]
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 3]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 7]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 2]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 1]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 8]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 5]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 4]]
+  [1m[36mHeroSchedule Load (0.1ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1[0m  [["hero_id", 6]]
+  [1m[35mHeroSchedule Load (0.1ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 9]]
+Completed 200 OK in 39ms (Views: 29.4ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 13:59:09 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[36mHeroSchedule Load (0.5ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"[0m
+  Rendered hero_schedules/index.html.erb (27.1ms)
+Completed 500 Internal Server Error in 39ms
+
+ActionView::Template::Error (undefined local variable or method `notice' for #<#<Class:0x007ff68588cc68>:0x007ff6830d9270>):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1>Listing Hero Schedules</h1>
+    4: 
+  app/views/hero_schedules/index.html.erb:1:in `_app_views_hero_schedules_index_html_erb__3139626031399272280_70348416111080'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (72.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (40.6ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (86.1ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 14:00:03 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[35mHeroSchedule Load (0.8ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"
+  Rendered hero_schedules/index.html.erb (222.6ms)
+Completed 500 Internal Server Error in 15895ms
+
+ActionView::Template::Error (undefined local variable or method `notice' for #<#<Class:0x007ff688d65ef8>:0x007ff682d227d0>):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1>Listing Hero Schedules</h1>
+    4: 
+  app/views/hero_schedules/index.html.erb:1:in `_app_views_hero_schedules_index_html_erb__3139626031399272280_70348416111080'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (153.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (36.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (261.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (65.9ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (132.4ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 14:00:42 -0700
+Processing by HeroSchedulesController#index as */*
+Completed 200 OK in 3202ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 14:01:04 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[36mHeroSchedule Load (0.6ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"[0m
+Completed 200 OK in 3253ms (Views: 62.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 14:01:39 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[35mHeroSchedule Load (0.6ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHeroSchedule Load (0.5ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  [["hero_id", 1]]
+Completed 500 Internal Server Error in 9347ms
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-01 14:09:50 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[36mHeroSchedule Load (0.6ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"[0m
+  [1m[35mHero Load (0.5ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHero Load (0.8ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mHero Load (0.6ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mHero Load (0.5ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mHero Load (0.7ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mHero Load (0.4ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 10030ms (Views: 442.9ms | ActiveRecord: 14.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mHero Load (0.9ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Sherry"], ["last_name", "Turkle"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Sherry"], ["last_name", "Turkle"], ["created_at", "2015-09-01 21:18:21.824501"], ["updated_at", "2015-09-01 21:18:21.824501"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Suport Hero III"], ["bio", "Currently the Abby Rockefeller Mauzé Professor of the Social Studies of Science and Technology at the Massachusetts Institute of Technology."], ["updated_at", "2015-09-01 21:18:21.828700"], ["id", 11]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Boris"], ["last_name", "Karloff"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Vicente"], ["last_name", "Fox"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Matte"], ["last_name", "Smith"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "heroes" SET "bio" = $1, "updated_at" = $2 WHERE "heroes"."id" = $3[0m  [["bio", "Also known as \"The Doctor\". He enjoys travelling in space and time as well. "], ["updated_at", "2015-09-01 21:18:21.835581"], ["id", 4]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Kevin"], ["last_name", "Smith"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Super Hero"], ["bio", "Go-to authority on all things Batman"], ["updated_at", "2015-09-01 21:18:21.838275"], ["id", 5]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Zoe"], ["last_name", "Muppet"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Zoe"], ["last_name", "Muppet"], ["created_at", "2015-09-01 21:18:21.840751"], ["updated_at", "2015-09-01 21:18:21.840751"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Children Support Specialist"], ["bio", "Zoe loves to dance and has a wild imagination! Learn more about her at her Muppet page."], ["updated_at", "2015-09-01 21:18:21.842461"], ["id", 12]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Jay"], ["last_name", "Jonah Jameson"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "heroes" SET "bio" = $1, "updated_at" = $2 WHERE "heroes"."id" = $3  [["bio", "Grumpy newspaper editor."], ["updated_at", "2015-09-01 21:18:21.845837"], ["id", 7]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1  [["first_name", "Eadon"], ["last_name", "Jacobs"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Eadon"], ["last_name", "Jacobs"], ["created_at", "2015-09-01 21:18:21.847906"], ["updated_at", "2015-09-01 21:18:21.847906"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Support Hero I"], ["bio", "Founder at Plannit"], ["updated_at", "2015-09-01 21:18:21.849563"], ["id", 13]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Franky"], ["last_name", "Stien"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "heroes" SET "bio" = $1, "updated_at" = $2 WHERE "heroes"."id" = $3[0m  [["bio", "Good friend of Boris"], ["updated_at", "2015-09-01 21:18:21.852451"], ["id", 9]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2 LIMIT 1[0m  [["first_name", "Luis"], ["last_name", "CK"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "heroes" SET "bio" = $1, "updated_at" = $2 WHERE "heroes"."id" = $3[0m  [["bio", "Support team comic releif."], ["updated_at", "2015-09-01 21:18:21.854673"], ["id", 10]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-01"], ["created_at", "2015-09-01 21:18:21.875890"], ["updated_at", "2015-09-01 21:18:21.875890"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Boris"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-09-02"], ["created_at", "2015-09-01 21:18:21.879867"], ["updated_at", "2015-09-01 21:18:21.879867"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Vicente"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 3], ["scheduled_on", "2015-09-03"], ["created_at", "2015-09-01 21:18:21.882236"], ["updated_at", "2015-09-01 21:18:21.882236"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-09-04"], ["created_at", "2015-09-01 21:18:21.884606"], ["updated_at", "2015-09-01 21:18:21.884606"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Jack"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-09-06"], ["created_at", "2015-09-01 21:18:21.887764"], ["updated_at", "2015-09-01 21:18:21.887764"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-07"], ["created_at", "2015-09-01 21:18:21.890626"], ["updated_at", "2015-09-01 21:18:21.890626"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-09-08"], ["created_at", "2015-09-01 21:18:21.894165"], ["updated_at", "2015-09-01 21:18:21.894165"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-09-09"], ["created_at", "2015-09-01 21:18:21.896726"], ["updated_at", "2015-09-01 21:18:21.896726"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Vicente"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 3], ["scheduled_on", "2015-09-10"], ["created_at", "2015-09-01 21:18:21.899354"], ["updated_at", "2015-09-01 21:18:21.899354"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Zoe"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 6], ["scheduled_on", "2015-09-11"], ["created_at", "2015-09-01 21:18:21.901673"], ["updated_at", "2015-09-01 21:18:21.901673"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-09-12"], ["created_at", "2015-09-01 21:18:21.904019"], ["updated_at", "2015-09-01 21:18:21.904019"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-13"], ["created_at", "2015-09-01 21:18:21.906185"], ["updated_at", "2015-09-01 21:18:21.906185"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Zoe"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 6], ["scheduled_on", "2015-09-14"], ["created_at", "2015-09-01 21:18:21.908282"], ["updated_at", "2015-09-01 21:18:21.908282"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Jay"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 7], ["scheduled_on", "2015-09-15"], ["created_at", "2015-09-01 21:18:21.910344"], ["updated_at", "2015-09-01 21:18:21.910344"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 2], ["scheduled_on", "2015-09-16"], ["created_at", "2015-09-01 21:18:21.913437"], ["updated_at", "2015-09-01 21:18:21.913437"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Eadon"]]
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 8], ["scheduled_on", "2015-09-17"], ["created_at", "2015-09-01 21:18:21.915252"], ["updated_at", "2015-09-01 21:18:21.915252"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-09-18"], ["created_at", "2015-09-01 21:18:21.917128"], ["updated_at", "2015-09-01 21:18:21.917128"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Franky"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 9], ["scheduled_on", "2015-09-19"], ["created_at", "2015-09-01 21:18:21.919147"], ["updated_at", "2015-09-01 21:18:21.919147"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-09-20"], ["created_at", "2015-09-01 21:18:21.921212"], ["updated_at", "2015-09-01 21:18:21.921212"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-21"], ["created_at", "2015-09-01 21:18:21.923470"], ["updated_at", "2015-09-01 21:18:21.923470"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Franky"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 9], ["scheduled_on", "2015-09-22"], ["created_at", "2015-09-01 21:18:21.925997"], ["updated_at", "2015-09-01 21:18:21.925997"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Franky"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 9], ["scheduled_on", "2015-09-23"], ["created_at", "2015-09-01 21:18:21.928089"], ["updated_at", "2015-09-01 21:18:21.928089"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-09-24"], ["created_at", "2015-09-01 21:18:21.930590"], ["updated_at", "2015-09-01 21:18:21.930590"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 2], ["scheduled_on", "2015-09-25"], ["created_at", "2015-09-01 21:18:21.932908"], ["updated_at", "2015-09-01 21:18:21.932908"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Franky"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 9], ["scheduled_on", "2015-09-26"], ["created_at", "2015-09-01 21:18:21.934995"], ["updated_at", "2015-09-01 21:18:21.934995"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Vicente"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 3], ["scheduled_on", "2015-09-27"], ["created_at", "2015-09-01 21:18:21.936932"], ["updated_at", "2015-09-01 21:18:21.936932"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Luis"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 10], ["scheduled_on", "2015-09-28"], ["created_at", "2015-09-01 21:18:21.938789"], ["updated_at", "2015-09-01 21:18:21.938789"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Eadon"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 8], ["scheduled_on", "2015-09-29"], ["created_at", "2015-09-01 21:18:21.941067"], ["updated_at", "2015-09-01 21:18:21.941067"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 2], ["scheduled_on", "2015-09-30"], ["created_at", "2015-09-01 21:18:21.943439"], ["updated_at", "2015-09-01 21:18:21.943439"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-10-01"], ["created_at", "2015-09-01 21:18:21.946493"], ["updated_at", "2015-09-01 21:18:21.946493"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-10-02"], ["created_at", "2015-09-01 21:18:21.948920"], ["updated_at", "2015-09-01 21:18:21.948920"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Jay"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 7], ["scheduled_on", "2015-10-03"], ["created_at", "2015-09-01 21:18:21.951214"], ["updated_at", "2015-09-01 21:18:21.951214"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "James"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-10-05"], ["created_at", "2015-09-01 21:18:21.953585"], ["updated_at", "2015-09-01 21:18:21.953585"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-10-06"], ["created_at", "2015-09-01 21:18:21.955520"], ["updated_at", "2015-09-01 21:18:21.955520"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-10-07"], ["created_at", "2015-09-01 21:18:21.957850"], ["updated_at", "2015-09-01 21:18:21.957850"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1[0m  [["first_name", "Jack"]]
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-10-09"], ["created_at", "2015-09-01 21:18:21.960317"], ["updated_at", "2015-09-01 21:18:21.960317"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 LIMIT 1  [["first_name", "Jack"]]

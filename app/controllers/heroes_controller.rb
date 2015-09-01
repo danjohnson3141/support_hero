@@ -1,75 +1,43 @@
 class HeroesController < ApplicationController
-  before_action :set_hero, only: [:show, :edit, :update, :destroy]
+  include ObjectSetters
+  before_action only: [:show, :update, :destroy] { set_object(Hero) }
 
   # GET /heroes
-  # GET /heroes.json
   def index
     @heroes = Hero.all.order(:last_name, :first_name)
-    render json: @heroes, each_serializer: HeroSerializer
+    render json: @heroes, not_nested: true, each_serializer: HeroSerializer
   end
 
   # GET /heroes/1
-  # GET /heroes/1.json
   def show
-  end
-
-  # GET /heroes/new
-  def new
-    @hero = Hero.new
-  end
-
-  # GET /heroes/1/edit
-  def edit
+    render json: @hero, not_nested: true, serializer: HeroSerializer
   end
 
   # POST /heroes
-  # POST /heroes.json
   def create
     @hero = Hero.new(hero_params)
 
-    respond_to do |format|
-      if @hero.save
-        format.html { redirect_to @hero, notice: 'Hero was successfully created.' }
-        format.json { render :show, status: :created, location: @hero }
-      else
-        format.html { render :new }
-        format.json { render json: @hero.errors, status: :unprocessable_entity }
-      end
-    end
+    render json: @hero, serializer: HeroSerializer, status: :created
   end
 
   # PATCH/PUT /heroes/1
-  # PATCH/PUT /heroes/1.json
   def update
-    respond_to do |format|
-      if @hero.update(hero_params)
-        format.html { redirect_to @hero, notice: 'Hero was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hero }
-      else
-        format.html { render :edit }
-        format.json { render json: @hero.errors, status: :unprocessable_entity }
-      end
+    if @hero.update(hero_params)
+      head :no_content
+    else
+      render json: { errors: @hero.errors }, status: :unprocessable_entity
     end
   end
 
   # DELETE /heroes/1
-  # DELETE /heroes/1.json
   def destroy
     @hero.destroy
-    respond_to do |format|
-      format.html { redirect_to heroes_url, notice: 'Hero was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    head :no_content
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hero
-      @hero = Hero.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def hero_params
-      params.require(:hero).permit(:first_name, :last_name, :title, :bio, :created_by, :updated_by)
+      params.require(:hero).permit(:first_name, :last_name, :title, :bio)
     end
 end

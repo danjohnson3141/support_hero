@@ -24,10 +24,16 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
+  # color text output helper
+  gem 'colorize'
+  # debugging
   gem 'pry'
   gem 'pry-byebug'
+  # testing/mocking/transactional db cleanup
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'faker'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
