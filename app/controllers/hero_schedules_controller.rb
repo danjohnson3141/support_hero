@@ -5,15 +5,20 @@ class HeroSchedulesController < ApplicationController
   # GET /hero_schedules?start_date=yyyy-mm-dd&end_date=yyyy-mm-dd
   # start_date and end_date are optional constraints
   def index
-    start_clause = params[:start_date].present? ? "scheduled_on <= #{params[:start_date]}" : nil
-    end_clause = params[:end_date].present? ? "scheduled_on => #{params[:end_date]}" : nil
+    start_clause = params[:start_date].present? ? "scheduled_on >= '#{params[:start_date]}'" : nil
+    end_clause = params[:end_date].present? ? "scheduled_on <= '#{params[:end_date]}'" : nil
     @hero_schedules = HeroSchedule.where(start_clause).where(end_clause).all
-    binding.pry
+    
     render json: @hero_schedules, each_serializer: HeroScheduleSerializer
   end
 
   # GET /hero_schedules/1
   def show
+  end
+
+  # GET /hero_schedules/today
+  def today
+    render json: HeroSchedule.today
   end
 
   # POST /hero_schedules

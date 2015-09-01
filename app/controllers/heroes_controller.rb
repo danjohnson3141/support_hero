@@ -1,16 +1,23 @@
 class HeroesController < ApplicationController
   include ObjectSetters
-  before_action only: [:show, :update, :destroy] { set_object(Hero) }
+  before_action only: [:update, :destroy] { set_object(Hero) }
 
   # GET /heroes
   def index
-    @heroes = Hero.all.order(:last_name, :first_name)
-    render json: @heroes, not_nested: true, each_serializer: HeroSerializer
+    @heroes = Hero.all
+    render json: @heroes, show_schedule: true, each_serializer: HeroSerializer
   end
 
-  # GET /heroes/1
+  # GET /heroes/:id
+  # GET /heroes/today for today's scheduled support here (TODO: maybe not 100% RESTful)
   def show
-    render json: @hero, not_nested: true, serializer: HeroSerializer
+    if params[:id].downcase == 'today'
+      @hero = HeroSchedule.today
+    else
+      @hero = Hero.find(params[:id])
+    end
+
+    render json: @hero, show_schedule: true, serializer: HeroSerializer
   end
 
   # POST /heroes

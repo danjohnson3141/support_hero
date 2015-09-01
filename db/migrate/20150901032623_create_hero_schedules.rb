@@ -10,6 +10,7 @@ class CreateHeroSchedules < ActiveRecord::Migration
     end
     add_index :hero_schedules, :created_by
     add_index :hero_schedules, :updated_by
+    add_index :hero_schedules, [:hero_id, :scheduled_on]
     add_foreign_key :hero_schedules, :heroes
   end
 end

@@ -12,9 +12,10 @@ heroes = [
 	{first_name: 'Eadon', last_name: 'Jacobs', title: 'Support Hero I', bio: 'Founder at Plannit'},
 	{first_name: 'Franky', last_name: 'Stien', title: 'Support Hero IV', bio: 'Good friend of Boris'},
 	{first_name: 'Luis', last_name: 'CK', title: 'Support Hero I', bio: 'Support team comic releif.'},
+	{first_name: 'Jack', last_name: 'Johnson', title: 'Support Hero I', bio: 'Music guy'},
 ]
 
-puts 'Seeding heroes...'
+puts 'Seeding heroes table...'
 heroes.each do |hero|
 	Hero.find_or_create_by(first_name: hero[:first_name], last_name: hero[:last_name]).update_attributes(hero)
 end
@@ -27,10 +28,30 @@ schedules = ['Sherry', 'Boris', 'Vicente', 'Matte', 'Jack', 'Sherry',
  'Kevin', 'Matte', 'Jay', 'James', 'Kevin', 'Sherry',
  'Sherry', 'Jack', 'Sherry', 'Jack']
 
-puts 'Seeding hero_schedules...'
+puts 'Seeding hero_schedules table...'
 scheduled_on = Time.now
 schedules.each do |schedule|
 	hero = Hero.find_by(first_name: schedule)
 	HeroSchedule.create(hero: hero, scheduled_on: scheduled_on) if hero.present?
 	scheduled_on += 1.days
+end
+
+holidays = 
+	[
+		{ holiday_date: '2015-01-01', name: 'New Years Day' },
+	 	{ holiday_date: '2015-01-19', name: 'Martin Luther King' },
+	 	{ holiday_date: '2015-02-16', name: 'Presidents Day' },
+	 	{ holiday_date: '2015-05-25', name: 'Memorial Day' },
+		{ holiday_date: '2015-07-03', name: 'Independence Day (observed)' },
+		{ holiday_date: '2015-09-07', name: 'Labor Day' },
+		{ holiday_date: '2015-10-12', name: 'Columbus Day' },
+		{ holiday_date: '2015-11-11', name: 'Veterans Day' },
+		{ holiday_date: '2015-11-26', name: 'Thanksgiving' },
+		{ holiday_date: '2015-11-27', name: 'Day after Thanksgiving' },
+		{ holiday_date: '2015-12-25', name: 'Christmas Day' }
+	]
+
+puts 'Seeding holidays table...'
+holidays.each do |holiday|
+	Holiday.find_or_create_by(holiday_date: holiday[:holiday_date]).update_attributes(holiday)
 end
