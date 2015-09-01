@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scheduled on:</strong>
+  <%= @hero_schedule.scheduled_on %>
+</p>
+
+<p>
+  <strong>Hero:</strong>
+  <%= @hero_schedule.hero %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @hero_schedule.created_by %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @hero_schedule.updated_by %>
+</p>
+
+<%= link_to 'Edit', edit_hero_schedule_path(@hero_schedule) %> |
+<%= link_to 'Back', hero_schedules_path %>

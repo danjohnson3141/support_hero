@@ -4,7 +4,8 @@ class HeroesController < ApplicationController
   # GET /heroes
   # GET /heroes.json
   def index
-    @heroes = Hero.all
+    @heroes = Hero.all.order(:last_name, :first_name)
+    render json: @heroes, each_serializer: HeroSerializer
   end
 
   # GET /heroes/1

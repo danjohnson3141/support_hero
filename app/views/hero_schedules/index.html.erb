@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hero Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scheduled on</th>
+      <th>Hero</th>
+      <th>Created by</th>
+      <th>Updated by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hero_schedules.each do |hero_schedule| %>
+      <tr>
+        <td><%= hero_schedule.scheduled_on %></td>
+        <td><%= hero_schedule.hero %></td>
+        <td><%= hero_schedule.created_by %></td>
+        <td><%= hero_schedule.updated_by %></td>
+        <td><%= link_to 'Show', hero_schedule %></td>
+        <td><%= link_to 'Edit', edit_hero_schedule_path(hero_schedule) %></td>
+        <td><%= link_to 'Destroy', hero_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hero schedule', new_hero_schedule_path %>

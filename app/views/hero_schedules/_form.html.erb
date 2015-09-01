@@ -1,0 +1,33 @@
+<%= form_for(@hero_schedule) do |f| %>
+  <% if @hero_schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hero_schedule.errors.count, "error") %> prohibited this hero_schedule from being saved:</h2>
+
+      <ul>
+      <% @hero_schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scheduled_on %><br>
+    <%= f.date_select :scheduled_on %>
+  </div>
+  <div class="field">
+    <%= f.label :hero_id %><br>
+    <%= f.text_field :hero_id %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by %><br>
+    <%= f.number_field :created_by %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_by %><br>
+    <%= f.number_field :updated_by %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
