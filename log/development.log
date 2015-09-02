@@ -7450,3 +7450,155 @@ Started GET "/holidays" for ::1 at 2015-09-02 15:07:00 -0700
 Processing by HolidaysController#index as */*
   [1m[36mHoliday Load (0.4ms)[0m  [1mSELECT "holidays".* FROM "holidays"  ORDER BY "holidays"."holiday_date" ASC[0m
 Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/holidays/3" for ::1 at 2015-09-02 15:53:23 -0700
+Processing by HolidaysController#show as */*
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `set_object' for #<HolidaysController:0x007fee42ca51b0>):
+  app/controllers/holidays_controller.rb:2:in `block in <class:HolidaysController>'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fee431214f0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fee43120b68 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fee43118698 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started GET "/holidays" for ::1 at 2015-09-02 15:53:56 -0700
+Processing by HolidaysController#index as */*
+  [1m[35mHoliday Load (0.4ms)[0m  SELECT "holidays".* FROM "holidays"  ORDER BY "holidays"."holiday_date" ASC
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/holidays/1" for ::1 at 2015-09-02 15:54:00 -0700
+Processing by HolidaysController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `set_object' for #<HolidaysController:0x007fee42b9d628>):
+  app/controllers/holidays_controller.rb:2:in `block in <class:HolidaysController>'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.9ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fee431214f0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fee43120b68 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fee43118698 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started GET "/holidays/1" for ::1 at 2015-09-02 15:54:33 -0700
+Processing by HolidaysController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."id" = $1  ORDER BY "holidays"."holiday_date" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 10ms (Views: 1.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/holidays/1" for ::1 at 2015-09-02 15:54:33 -0700
+Processing by HolidaysController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."id" = $1  ORDER BY "holidays"."holiday_date" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/holidays" for ::1 at 2015-09-02 15:54:39 -0700
+Processing by HolidaysController#index as */*
+  [1m[36mHoliday Load (0.4ms)[0m  [1mSELECT "holidays".* FROM "holidays"  ORDER BY "holidays"."holiday_date" ASC[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/holidays/5" for ::1 at 2015-09-02 15:54:45 -0700
+Processing by HolidaysController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."id" = $1  ORDER BY "holidays"."holiday_date" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/holidays" for ::1 at 2015-09-02 15:58:23 -0700
+Processing by HolidaysController#create as */*
+  Parameters: {"holiday"=>{"holiday_date"=>"2015-12-18", "name"=>"Star Wars: The Force Awakens Release Date", "description"=>"Everyone take the day off and go see Star Wars!!!"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHoliday Exists (0.3ms)[0m  SELECT  1 AS one FROM "holidays" WHERE "holidays"."holiday_date" = '2015-12-18' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["holiday_date", "2015-12-18"], ["name", "Star Wars: The Force Awakens Release Date"], ["description", "Everyone take the day off and go see Star Wars!!!"], ["created_at", "2015-09-02 22:58:23.831735"], ["updated_at", "2015-09-02 22:58:23.831735"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/holidays" for ::1 at 2015-09-02 15:59:47 -0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "holiday": {
+    "holiday_date": "2015-12-18",
+    "name": "Star Wars: The Force Awakens Release Date",
+    "description": "Everyone take the day off and go see Star Wars!!!"
+  }
+}
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '}'):
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.2ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fee431214f0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fee43120b68 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fee43118698 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/holidays" for ::1 at 2015-09-02 16:00:34 -0700
+Processing by HolidaysController#create as */*
+  Parameters: {"holiday"=>{"holiday_date"=>"2015-12-18", "name"=>"Star Wars: The Force Awakens Release Date", "description"=>"Everyone take the day off and go see Star Wars!!!"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHoliday Exists (0.4ms)[0m  SELECT  1 AS one FROM "holidays" WHERE "holidays"."holiday_date" = '2015-12-18' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/holidays" for ::1 at 2015-09-02 16:01:07 -0700
+Processing by HolidaysController#create as */*
+  Parameters: {"holiday"=>{"holiday_date"=>"2015-12-18", "name"=>"Star Wars: The Force Awakens Release Date", "description"=>"Everyone take the day off and go see Star Wars!!!"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHoliday Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "holidays" WHERE "holidays"."holiday_date" = '2015-12-18' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)

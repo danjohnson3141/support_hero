@@ -1,3 +1,3 @@
 class HolidaySerializer < ActiveModel::Serializer
-  attributes :holiday_date, :name, :description
+  attributes :id, :holiday_date, :name, :description
 end

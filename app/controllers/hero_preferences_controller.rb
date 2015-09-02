@@ -1,4 +1,5 @@
 class HeroPreferencesController < ApplicationController
+  include ObjectSetters
   before_action only: [:show, :update, :destroy] { set_object(HeroPreference) }
 
   # GET /hero_preferences

@@ -1,4 +1,5 @@
 class HolidaysController < ApplicationController
+  include ObjectSetters
   before_action only: [:show, :update, :destroy] { set_object(Holiday) }
 
   # GET /holidays
