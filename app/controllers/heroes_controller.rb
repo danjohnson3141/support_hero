@@ -12,7 +12,7 @@ class HeroesController < ApplicationController
   # GET /heroes/today for today's scheduled support here (TODO: maybe not 100% RESTful)
   def show
     if params[:id].downcase == 'today'
-      @hero = HeroSchedule.today
+      @hero = HeroSchedule.today_hero
     else
       @hero = Hero.find(params[:id])
     end
@@ -24,7 +24,11 @@ class HeroesController < ApplicationController
   def create
     @hero = Hero.new(hero_params)
 
-    render json: @hero, serializer: HeroSerializer, status: :created
+    if @hero.save
+      render json: @hero, serializer: HeroSerializer, status: :created
+    else
+      render json: { errors: @hero.errors }, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /heroes/1

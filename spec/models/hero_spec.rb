@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Hero, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Validation tests" do
+    it "First name is a required field" do
+      build(:hero, first_name: nil).should_not be_valid
+    end
+  end
 end

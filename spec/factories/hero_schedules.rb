@@ -5,7 +5,7 @@ FactoryGirl.define do
     end
 
     trait :tomorrow do
-      scheduled_on Time.now - 1.days
+      scheduled_on 1.day.from_now
     end
 
     trait :random do

@@ -1079,3 +1079,1855 @@ Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms)
   [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (1.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (13.8ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Ants"], ["bio", "Ut repudiandae impedit quo et possimus. Rem natus et id est. Praesentium consequuntur veniam. Enim sed ipsa quod eum. Voluptatem corrupti quae in."], ["created_at", "2015-09-02 15:05:13.450749"], ["updated_at", "2015-09-02 15:05:13.450749"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Buffalo"], ["bio", "Commodi exercitationem neque aut. Enim nobis incidunt dolorum corrupti et animi minus. Voluptas saepe qui esse hic perferendis sequi. Ut vel necessitatibus. Ut quo labore repellendus architecto omnis consectetur repellat."], ["created_at", "2015-09-02 15:05:13.470920"], ["updated_at", "2015-09-02 15:05:13.470920"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Foxes"], ["bio", "Quos et modi et repellendus. Aut odit consequatur aperiam ad. Eaque perspiciatis expedita nihil. Voluptatem et excepturi deserunt et."], ["created_at", "2015-09-02 15:05:13.473324"], ["updated_at", "2015-09-02 15:05:13.473324"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:05:13 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.8ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.7ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 1]]
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 3.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "warlocks"], ["last_name", "vampires"], ["title", "Kangaroos"], ["bio", "Sint maiores sint veritatis perspiciatis voluptatem. Consequuntur et quod sunt nam. Qui voluptatibus expedita."], ["created_at", "2015-09-02 15:05:13.512997"], ["updated_at", "2015-09-02 15:05:13.512997"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/heroes/4" for 127.0.0.1 at 2015-09-02 08:05:13 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:05:13 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:05:13 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "wolves"], ["last_name", "chimeras"], ["title", "Bees"], ["bio", "Maxime est accusamus voluptate est in. Reprehenderit et quo consequatur aliquid sapiente odit fugit. Suscipit minus dolorum commodi ratione velit accusamus dolores."], ["created_at", "2015-09-02 15:05:13.539527"], ["updated_at", "2015-09-02 15:05:13.539527"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 5], ["created_at", "2015-09-02 15:05:13.558416"], ["updated_at", "2015-09-02 15:05:13.558416"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:05:13 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[36mHeroSchedule Load (0.5ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (1.7ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (13.6ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:06:54 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (1.5ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 2.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "goats"], ["last_name", "bats"], ["title", "Pigs"], ["bio", "Voluptates dolor voluptatibus iste. Distinctio ut nostrum culpa. Reprehenderit nihil culpa provident vel quidem. Et reprehenderit tempore dolores mollitia ex. Aut provident sed exercitationem repudiandae quidem."], ["created_at", "2015-09-02 15:06:54.423867"], ["updated_at", "2015-09-02 15:06:54.423867"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:06:54.444910"], ["updated_at", "2015-09-02 15:06:54.444910"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.5ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_2[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:06:54 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:06:54 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "pigs"], ["last_name", "people"], ["title", "Black Cats"], ["bio", "Autem dolores quos fugit nobis. Ut officia laborum et asperiores impedit magnam et. Sint asperiores voluptatem autem voluptatem. Qui quas et dolor. Debitis autem sunt non."], ["created_at", "2015-09-02 15:06:54.496971"], ["updated_at", "2015-09-02 15:06:54.496971"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/heroes/2" for 127.0.0.1 at 2015-09-02 08:06:54 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mHeroSchedule Load (0.4ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 2]]
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Zebras"], ["bio", "Voluptate architecto ut consectetur. Recusandae quas temporibus deserunt eligendi. Repellendus deleniti quo facere nostrum."], ["created_at", "2015-09-02 15:06:54.513095"], ["updated_at", "2015-09-02 15:06:54.513095"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Worshipers"], ["bio", "Iste voluptate consequatur nihil non tempore. Possimus et aut. Voluptatum aut molestias repudiandae eaque minima rerum."], ["created_at", "2015-09-02 15:06:54.516469"], ["updated_at", "2015-09-02 15:06:54.516469"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Dwarves"], ["bio", "Distinctio occaecati sint dolores illum amet eveniet aut. Iusto consequatur provident reprehenderit consequuntur sunt laudantium autem. Officia animi aut tenetur fugit rem. Ducimus voluptatem sint atque aspernatur non. Veniam rerum qui nulla."], ["created_at", "2015-09-02 15:06:54.519239"], ["updated_at", "2015-09-02 15:06:54.519239"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:06:54 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 4]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 5]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (2.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (16.5ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:10:02 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 11ms (Views: 1.3ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:10:02 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.6ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 8ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "lycanthropes"], ["last_name", "werewolves"], ["title", "Oracles"], ["bio", "Sunt quae incidunt. Omnis voluptatem nostrum distinctio et fugiat quia beatae. Est ea quos mollitia fuga voluptatibus voluptas labore. Voluptatem in placeat suscipit eos labore ut."], ["created_at", "2015-09-02 15:10:02.719412"], ["updated_at", "2015-09-02 15:10:02.719412"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/heroes/1" for 127.0.0.1 at 2015-09-02 08:10:02 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mHero Load (0.4ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mHeroSchedule Load (0.5ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 1]]
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Conspirators"], ["bio", "Velit est sit sed beatae tempore. Rerum delectus occaecati similique rerum. Blanditiis impedit perferendis rerum itaque perspiciatis. Et ut molestiae omnis et."], ["created_at", "2015-09-02 15:10:02.759714"], ["updated_at", "2015-09-02 15:10:02.759714"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Prophets"], ["bio", "Occaecati laborum architecto iusto est sequi vel. Qui et id blanditiis. Quo aspernatur ea harum at praesentium inventore est. Cumque aut repellendus in."], ["created_at", "2015-09-02 15:10:02.762065"], ["updated_at", "2015-09-02 15:10:02.762065"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Owls"], ["bio", "Voluptatem ea enim adipisci qui quia. Exercitationem omnis atque nulla quaerat iste explicabo incidunt. Alias quas magnam eaque."], ["created_at", "2015-09-02 15:10:02.764137"], ["updated_at", "2015-09-02 15:10:02.764137"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:10:02 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:10:02 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "conspirators"], ["last_name", "vixens"], ["title", "Tigers"], ["bio", "Quis eos at qui architecto facere et. Voluptas consectetur eaque ab tempore illo enim. Esse eum dolorum. Sed quidem perspiciatis tempora ut."], ["created_at", "2015-09-02 15:10:02.850130"], ["updated_at", "2015-09-02 15:10:02.850130"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 5], ["created_at", "2015-09-02 15:10:02.864772"], ["updated_at", "2015-09-02 15:10:02.864772"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (1.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (14.0ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "tigers"], ["last_name", "zebras"], ["title", "Gnomes"], ["bio", "Quas aut quis nisi odio vitae soluta praesentium. Labore corrupti quae sunt ducimus deserunt fugiat aut. Sed ullam ad. Ab et iste aut porro aut. Amet labore eligendi."], ["created_at", "2015-09-02 15:15:23.950368"], ["updated_at", "2015-09-02 15:15:23.950368"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.8ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:15:23.987928"], ["updated_at", "2015-09-02 15:15:23.987928"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:15:24 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (0.6ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:15:24 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:15:24 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mHero Load (0.5ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "zombies"], ["last_name", "tigers"], ["title", "Tigers"], ["bio", "Quibusdam aspernatur et animi ut. Modi ipsam voluptatum id dolores. Ipsam dolorem est aspernatur et sit eos."], ["created_at", "2015-09-02 15:15:24.054757"], ["updated_at", "2015-09-02 15:15:24.054757"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+Started GET "/heroes/2" for 127.0.0.1 at 2015-09-02 08:15:24 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Foes"], ["bio", "Placeat quos voluptate et et eum mollitia. Dolore blanditiis odio consequatur nulla id. Possimus reiciendis quas deleniti qui molestiae. Nemo nihil architecto temporibus veniam ut omnis."], ["created_at", "2015-09-02 15:15:24.070157"], ["updated_at", "2015-09-02 15:15:24.070157"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Ghosts"], ["bio", "Voluptatibus velit non. Ipsum dolores praesentium ab. Sint labore cumque. Magni quia in quo fugiat perspiciatis. Ullam sunt qui."], ["created_at", "2015-09-02 15:15:24.072720"], ["updated_at", "2015-09-02 15:15:24.072720"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Dolphins"], ["bio", "Non quidem et. Nesciunt labore nobis tempora quasi blanditiis veniam. Consectetur consequuntur sed. Odit laboriosam voluptatibus repellat eum. Adipisci dolore unde qui delectus."], ["created_at", "2015-09-02 15:15:24.075073"], ["updated_at", "2015-09-02 15:15:24.075073"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:15:24 -0700
+Processing by HeroesController#index as HTML
+  [1m[35mHero Load (0.4ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 5]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (14.2ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "pigs"], ["last_name", "dwarves"], ["title", "Zebras"], ["bio", "Voluptatibus est velit sint minus voluptate. Velit culpa aut. Aut iusto velit minus."], ["created_at", "2015-09-02 15:16:34.858893"], ["updated_at", "2015-09-02 15:16:34.858893"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "penguins"], ["last_name", "vixens"], ["title", "Pigs"], ["bio", "Sequi exercitationem beatae blanditiis voluptatem. Sit consequatur ea natus. Reiciendis quidem inventore ratione sit quisquam. Est quasi delectus molestiae."], ["created_at", "2015-09-02 15:16:34.902858"], ["updated_at", "2015-09-02 15:16:34.902858"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 2], ["created_at", "2015-09-02 15:16:34.905760"], ["updated_at", "2015-09-02 15:16:34.905760"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:16:34 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (0.6ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:16:34 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Black Cats"], ["bio", "Ut aperiam et quia rerum aliquid ut. Rem perspiciatis ad labore esse recusandae. Eum dolor sint optio fuga quis sed aut."], ["created_at", "2015-09-02 15:16:34.953505"], ["updated_at", "2015-09-02 15:16:34.953505"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Fishes"], ["bio", "Maxime laborum quasi. Labore occaecati ab neque ea quisquam dolorum. Velit vel deleniti. Laudantium mollitia error at repellat atque consectetur. Nisi error voluptates repellat mollitia."], ["created_at", "2015-09-02 15:16:34.955749"], ["updated_at", "2015-09-02 15:16:34.955749"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Lions"], ["bio", "Est nostrum qui occaecati necessitatibus. Quos odit quis sequi hic. Provident similique amet. Amet natus officia."], ["created_at", "2015-09-02 15:16:34.957735"], ["updated_at", "2015-09-02 15:16:34.957735"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:16:34 -0700
+Processing by HeroesController#index as HTML
+  [1m[35mHero Load (0.6ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 5]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "oracles"], ["last_name", "warlocks"], ["title", "Elephants"], ["bio", "Velit ut sunt. Tempora sint omnis est. Reiciendis qui a quos. Qui quae nisi aut sed rerum consequatur. Fuga in odio dolor omnis et molestias sint."], ["created_at", "2015-09-02 15:16:34.975556"], ["updated_at", "2015-09-02 15:16:34.975556"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+Started GET "/heroes/6" for 127.0.0.1 at 2015-09-02 08:16:34 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 6]]
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:16:34 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (1.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (14.3ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "chimeras"], ["last_name", "goats"], ["title", "Owls"], ["bio", "Adipisci explicabo quam maxime molestiae. Voluptas repellendus rerum animi quia non amet voluptatem. Et explicabo provident fuga. Accusantium et alias."], ["created_at", "2015-09-02 15:24:36.454721"], ["updated_at", "2015-09-02 15:24:36.454721"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.8ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:24:36.495282"], ["updated_at", "2015-09-02 15:24:36.495282"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "lions"], ["last_name", "bats"], ["title", "Nemesis"], ["bio", "Et autem sit. Eos sit ut reprehenderit nobis voluptas culpa. Consequatur quo et laborum. Occaecati amet iusto sit aliquam aperiam et autem."], ["created_at", "2015-09-02 15:24:36.503087"], ["updated_at", "2015-09-02 15:24:36.503087"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:24:36 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (0.6ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:24:36 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "sons"], ["last_name", "bears"], ["title", "Goats"], ["bio", "Hic rerum beatae quia. Eum dolor fugit possimus debitis distinctio sapiente et. Est totam at blanditiis porro ut quae aut. Omnis pariatur iure ratione reiciendis."], ["created_at", "2015-09-02 15:24:36.571829"], ["updated_at", "2015-09-02 15:24:36.571829"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+Started GET "/heroes/3" for 127.0.0.1 at 2015-09-02 08:24:36 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Vixens"], ["bio", "Cumque temporibus officiis sint. Possimus doloremque aut ut. Quam aut ipsam ducimus cupiditate asperiores. Dolorum pariatur non explicabo sed officia vel harum."], ["created_at", "2015-09-02 15:24:36.590233"], ["updated_at", "2015-09-02 15:24:36.590233"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Oxen"], ["bio", "Et adipisci exercitationem consectetur. Ullam enim consequatur. Molestiae doloribus aliquid labore ipsam aut. Qui labore aliquam quasi. Voluptatum ducimus quae rerum odit et quis sed."], ["created_at", "2015-09-02 15:24:36.594071"], ["updated_at", "2015-09-02 15:24:36.594071"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Dogs"], ["bio", "Sapiente et cupiditate minus numquam dolorem nulla. Impedit ut voluptates vel porro fugit perspiciatis nihil. Eum suscipit vero laboriosam ipsum. Quam dolorem aliquid natus consectetur sapiente."], ["created_at", "2015-09-02 15:24:36.596659"], ["updated_at", "2015-09-02 15:24:36.596659"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 4], ["created_at", "2015-09-02 15:24:36.599439"], ["updated_at", "2015-09-02 15:24:36.599439"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.2ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-03"], ["hero_id", 5], ["created_at", "2015-09-02 15:24:36.602051"], ["updated_at", "2015-09-02 15:24:36.602051"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-04"], ["hero_id", 4], ["created_at", "2015-09-02 15:24:36.604744"], ["updated_at", "2015-09-02 15:24:36.604744"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:24:36 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (15.1ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "horses"], ["last_name", "horses"], ["title", "Lions"], ["bio", "Placeat in dolorem quod voluptas itaque. Sint quasi amet quidem quo culpa. Voluptatem id doloribus quam nobis. Placeat aut incidunt quidem repellat minus. Iusto quibusdam quia quidem et voluptas."], ["created_at", "2015-09-02 15:25:07.600998"], ["updated_at", "2015-09-02 15:25:07.600998"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+Started GET "/heroes/1" for 127.0.0.1 at 2015-09-02 08:25:07 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.5ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mHeroSchedule Load (0.6ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 1]]
+Completed 200 OK in 19ms (Views: 10.5ms | ActiveRecord: 2.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:25:07 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Penguins"], ["bio", "Enim odio ducimus occaecati consequatur rem quod omnis. Numquam ea laboriosam earum quasi eos quae. Qui nam repellat maiores aliquam qui saepe impedit. Nesciunt nemo quasi voluptas est necessitatibus nulla."], ["created_at", "2015-09-02 15:25:07.641534"], ["updated_at", "2015-09-02 15:25:07.641534"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Geese"], ["bio", "Rerum autem non fugiat. Perferendis explicabo dolores. Sed occaecati voluptatem est beatae."], ["created_at", "2015-09-02 15:25:07.643642"], ["updated_at", "2015-09-02 15:25:07.643642"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Kangaroos"], ["bio", "Commodi explicabo quis eligendi repudiandae autem sit ut. Adipisci tenetur sit. Reiciendis aliquam maiores qui dolorum possimus nihil. Ea ut totam exercitationem dolor architecto quidem at."], ["created_at", "2015-09-02 15:25:07.645745"], ["updated_at", "2015-09-02 15:25:07.645745"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 2], ["created_at", "2015-09-02 15:25:07.660153"], ["updated_at", "2015-09-02 15:25:07.660153"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-03"], ["hero_id", 3], ["created_at", "2015-09-02 15:25:07.665729"], ["updated_at", "2015-09-02 15:25:07.665729"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-04"], ["hero_id", 2], ["created_at", "2015-09-02 15:25:07.669295"], ["updated_at", "2015-09-02 15:25:07.669295"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "name", "description", "created_by", "updated_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["holiday_date", "2015-09-03"], ["name", "New Relic Day"], ["description", "MyText"], ["created_by", 1], ["updated_by", 1], ["created_at", "2015-09-02 15:25:07.676715"], ["updated_at", "2015-09-02 15:25:07.676715"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:25:07 -0700
+Processing by HeroesController#index as HTML
+  [1m[35mHero Load (0.4ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 4]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 2]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 1.8ms)
+  [1m[35mHoliday Load (0.5ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:41:03 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 21ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:41:03 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[36mHeroSchedule Load (0.5ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "sons"], ["last_name", "dwarves"], ["title", "Owls"], ["bio", "Maxime nemo sunt. Exercitationem asperiores qui. Incidunt in quos nihil cumque. Quaerat porro perferendis molestiae autem tempore qui. Natus excepturi voluptate consectetur impedit nisi iste vel."], ["created_at", "2015-09-02 15:41:03.261425"], ["updated_at", "2015-09-02 15:41:03.261425"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.5ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 5], ["created_at", "2015-09-02 15:41:03.284762"], ["updated_at", "2015-09-02 15:41:03.284762"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."id" != 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.5ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "zebras"], ["last_name", "ogres"], ["title", "Gooses"], ["bio", "Commodi quos ut enim voluptas enim voluptatem. Tenetur rerum possimus quia earum voluptatem. Sunt optio nihil fugit porro. Iure odio itaque exercitationem. Dolor in vitae."], ["created_at", "2015-09-02 15:41:03.354448"], ["updated_at", "2015-09-02 15:41:03.354448"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 6 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (4.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (1.9ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (13.8ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:42:37 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (0.9ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:42:38 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:42:38 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mHero Load (0.5ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 8ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/today" for 127.0.0.1 at 2015-09-02 08:42:38 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"today"}
+  [1m[35mHeroSchedule Load (0.5ms)[0m  SELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."scheduled_on" = '2015-09-02 15:42:38.320899'  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1
+Completed 500 Internal Server Error in 4ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Frogs"], ["bio", "Repellat neque rem. Quam omnis quia tempore mollitia aspernatur recusandae eos. Accusamus expedita ut non in vel. Et consequatur non est alias veniam. Rem et sed provident."], ["created_at", "2015-09-02 15:42:38.327988"], ["updated_at", "2015-09-02 15:42:38.327988"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Kangaroos"], ["bio", "Voluptas quod cum. Accusantium quae repellendus quis qui laboriosam placeat et. Voluptatem aut est. Maiores magni corporis non velit corrupti rem."], ["created_at", "2015-09-02 15:42:38.331311"], ["updated_at", "2015-09-02 15:42:38.331311"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Penguins"], ["bio", "Voluptas sapiente est. Eos ut corporis. Sit illum sint. Esse vitae illum maiores asperiores est."], ["created_at", "2015-09-02 15:42:38.334221"], ["updated_at", "2015-09-02 15:42:38.334221"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.5ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:42:38.353376"], ["updated_at", "2015-09-02 15:42:38.353376"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-03"], ["hero_id", 2], ["created_at", "2015-09-02 15:42:38.357162"], ["updated_at", "2015-09-02 15:42:38.357162"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-04"], ["hero_id", 1], ["created_at", "2015-09-02 15:42:38.359969"], ["updated_at", "2015-09-02 15:42:38.359969"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "holidays" ("holiday_date", "name", "description", "created_by", "updated_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["holiday_date", "2015-09-03"], ["name", "New Relic Day"], ["description", "MyText"], ["created_by", 1], ["updated_by", 1], ["created_at", "2015-09-02 15:42:38.367906"], ["updated_at", "2015-09-02 15:42:38.367906"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:42:38 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 1]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 1.8ms)
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "tigers"], ["last_name", "sorcerors"], ["title", "Buffalo"], ["bio", "Sequi eos at. Dolor quisquam vel vitae veritatis vel consequatur. Et reiciendis pariatur doloremque."], ["created_at", "2015-09-02 15:42:38.423243"], ["updated_at", "2015-09-02 15:42:38.423243"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 4], ["created_at", "2015-09-02 15:42:38.426649"], ["updated_at", "2015-09-02 15:42:38.426649"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."id" != 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "druids"], ["last_name", "gooses"], ["title", "Sons"], ["bio", "Dignissimos est ab. In necessitatibus mollitia ad inventore velit iure. Dolores ut rerum. Excepturi corrupti at qui aliquid delectus vel eveniet. Facilis consequatur sunt quia."], ["created_at", "2015-09-02 15:42:38.434274"], ["updated_at", "2015-09-02 15:42:38.434274"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (16.3ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:43:22 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.5ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 12ms (ActiveRecord: 3.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/today" for 127.0.0.1 at 2015-09-02 08:43:22 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"today"}
+  [1m[36mHeroSchedule Load (1.2ms)[0m  [1mSELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."scheduled_on" = '2015-09-02 15:43:22.646855'  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Warlocks"], ["bio", "Voluptatem molestiae est sit quo consectetur ratione eum. Omnis aut sed id. Qui id a ipsum et quia non."], ["created_at", "2015-09-02 15:43:22.977704"], ["updated_at", "2015-09-02 15:43:22.977704"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Fishes"], ["bio", "Quibusdam dolor occaecati. Ullam distinctio quisquam atque minus aut. Nobis accusamus eveniet. Perferendis vero qui et non quod tempora consectetur."], ["created_at", "2015-09-02 15:43:22.981251"], ["updated_at", "2015-09-02 15:43:22.981251"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Banshees"], ["bio", "Quos voluptas quia libero. Possimus voluptatem voluptas quod minus enim eaque commodi. Eius deserunt libero nobis at corporis inventore."], ["created_at", "2015-09-02 15:43:23.000084"], ["updated_at", "2015-09-02 15:43:23.000084"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:43:23.019229"], ["updated_at", "2015-09-02 15:43:23.019229"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-03"], ["hero_id", 2], ["created_at", "2015-09-02 15:43:23.023400"], ["updated_at", "2015-09-02 15:43:23.023400"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-04"], ["hero_id", 1], ["created_at", "2015-09-02 15:43:23.027061"], ["updated_at", "2015-09-02 15:43:23.027061"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "name", "description", "created_by", "updated_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["holiday_date", "2015-09-03"], ["name", "New Relic Day"], ["description", "MyText"], ["created_by", 1], ["updated_by", 1], ["created_at", "2015-09-02 15:43:23.035270"], ["updated_at", "2015-09-02 15:43:23.035270"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:43:23 -0700
+Processing by HeroesController#index as HTML
+  [1m[35mHero Load (0.4ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 2]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 1]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 1.9ms)
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:43:23 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "werewolves"], ["last_name", "vixens"], ["title", "Witches"], ["bio", "Ipsum cum quaerat. Eum et maxime nihil nisi. Qui blanditiis quisquam consequuntur. Id perspiciatis aut incidunt voluptatibus illum expedita tenetur. Quam sint ullam distinctio voluptates id et qui."], ["created_at", "2015-09-02 15:43:23.075517"], ["updated_at", "2015-09-02 15:43:23.075517"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "pigs"], ["last_name", "griffins"], ["title", "Frogs"], ["bio", "Placeat eum est molestias sed. Facere quis consequuntur tenetur delectus unde. Et est repellat. Vitae adipisci quo qui temporibus voluptatem. Aliquid qui voluptatem in."], ["created_at", "2015-09-02 15:43:23.081921"], ["updated_at", "2015-09-02 15:43:23.081921"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 5], ["created_at", "2015-09-02 15:43:23.085156"], ["updated_at", "2015-09-02 15:43:23.085156"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."id" != 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.5ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:43:23 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[36mHeroSchedule Load (0.4ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (14.0ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "spiders"], ["last_name", "people"], ["title", "People"], ["bio", "Suscipit et illo eos. Deleniti quasi earum sed commodi sint maiores. Maxime non fugit ex est. Aliquam sequi tempora est modi a nihil sunt."], ["created_at", "2015-09-02 15:45:11.228022"], ["updated_at", "2015-09-02 15:45:11.228022"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "bats"], ["last_name", "buffalo"], ["title", "Whales"], ["bio", "Ipsam quibusdam et impedit quod eius. Quis corporis officiis ea. Fugit iste aut odit quis est. Dicta recusandae enim veritatis consequuntur sequi nostrum. Culpa quo non."], ["created_at", "2015-09-02 15:45:11.257756"], ["updated_at", "2015-09-02 15:45:11.257756"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 2], ["created_at", "2015-09-02 15:45:11.277488"], ["updated_at", "2015-09-02 15:45:11.277488"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Griffins"], ["bio", "Rerum laudantium autem necessitatibus quia nihil in. Hic et est deleniti suscipit fuga. Enim doloribus minus necessitatibus ea est sit."], ["created_at", "2015-09-02 15:45:11.287113"], ["updated_at", "2015-09-02 15:45:11.287113"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Vampires"], ["bio", "Quidem itaque labore suscipit fuga tempore. Odit deleniti quas delectus cupiditate. Voluptatem voluptatem enim eius consequatur sunt. Expedita aspernatur tempore. Itaque ea aut eaque reprehenderit non sed."], ["created_at", "2015-09-02 15:45:11.289568"], ["updated_at", "2015-09-02 15:45:11.289568"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Pigs"], ["bio", "Voluptas voluptatem quia ea molestias sequi quas qui. Amet ab enim laudantium rerum. Cumque nobis est voluptatem blanditiis."], ["created_at", "2015-09-02 15:45:11.292019"], ["updated_at", "2015-09-02 15:45:11.292019"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 3], ["created_at", "2015-09-02 15:45:11.294781"], ["updated_at", "2015-09-02 15:45:11.294781"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-03"], ["hero_id", 4], ["created_at", "2015-09-02 15:45:11.297442"], ["updated_at", "2015-09-02 15:45:11.297442"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-04"], ["hero_id", 3], ["created_at", "2015-09-02 15:45:11.300243"], ["updated_at", "2015-09-02 15:45:11.300243"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "name", "description", "created_by", "updated_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["holiday_date", "2015-09-03"], ["name", "New Relic Day"], ["description", "MyText"], ["created_by", 1], ["updated_by", 1], ["created_at", "2015-09-02 15:45:11.309969"], ["updated_at", "2015-09-02 15:45:11.309969"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/today" for 127.0.0.1 at 2015-09-02 08:45:11 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"today"}
+  [1m[35mHeroSchedule Load (1.0ms)[0m  SELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."scheduled_on" = '2015-09-02 15:45:11.321499'  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+  [1m[36mHoliday Load (0.6ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.4ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 22ms (Views: 10.8ms | ActiveRecord: 2.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:45:11 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 4]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 5]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 1.8ms)
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/4" for 127.0.0.1 at 2015-09-02 08:45:11 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 03 Sep 2015]]
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:45:11 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.4ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:45:11 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:45:11 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (2.9ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (17.0ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "goblins"], ["last_name", "conspirators"], ["title", "Rabbits"], ["bio", "Aut suscipit veritatis beatae voluptate corporis. Corporis aliquam et. Perspiciatis veniam expedita dicta. Labore quis nihil dolorum molestias inventore facere."], ["created_at", "2015-09-02 15:45:51.134817"], ["updated_at", "2015-09-02 15:45:51.134817"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (1.0ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:45:51.161019"], ["updated_at", "2015-09-02 15:45:51.161019"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."id" != 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "cats"], ["last_name", "oracles"], ["title", "Vixens"], ["bio", "Nobis est omnis dolorem voluptates. Ullam neque placeat quibusdam laudantium iure. Sit soluta officiis autem. Repudiandae facere id et odit est ut. Nesciunt vitae culpa tenetur dignissimos nihil neque."], ["created_at", "2015-09-02 15:45:51.190852"], ["updated_at", "2015-09-02 15:45:51.190852"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHeroSchedule Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:45:51 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (0.6ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:45:51 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Foxes"], ["bio", "Repellat modi eligendi eaque repudiandae possimus voluptatem dolor. Voluptate iste tempora. Impedit suscipit ut eligendi. Maiores nemo corrupti."], ["created_at", "2015-09-02 15:45:51.251731"], ["updated_at", "2015-09-02 15:45:51.251731"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Cats"], ["bio", "Beatae veritatis illum odit earum soluta. Quia dolor cumque officia et eius. Quis laborum vero nobis dolorem eum veniam. Reprehenderit aspernatur eveniet adipisci. Dolor enim ut iste itaque possimus."], ["created_at", "2015-09-02 15:45:51.254012"], ["updated_at", "2015-09-02 15:45:51.254012"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Gooses"], ["bio", "Illum ratione laudantium quaerat minima voluptatem laborum quis. Laboriosam amet qui facilis cupiditate. Doloremque veritatis voluptates consequatur eligendi voluptas autem aut. Consequatur sint ad deserunt eum occaecati est."], ["created_at", "2015-09-02 15:45:51.256596"], ["updated_at", "2015-09-02 15:45:51.256596"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 3], ["created_at", "2015-09-02 15:45:51.260088"], ["updated_at", "2015-09-02 15:45:51.260088"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-03"], ["hero_id", 4], ["created_at", "2015-09-02 15:45:51.262911"], ["updated_at", "2015-09-02 15:45:51.262911"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-04"], ["hero_id", 3], ["created_at", "2015-09-02 15:45:51.265485"], ["updated_at", "2015-09-02 15:45:51.265485"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "holidays" ("holiday_date", "name", "description", "created_by", "updated_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["holiday_date", "2015-09-03"], ["name", "New Relic Day"], ["description", "MyText"], ["created_by", 1], ["updated_by", 1], ["created_at", "2015-09-02 15:45:51.272309"], ["updated_at", "2015-09-02 15:45:51.272309"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/today" for 127.0.0.1 at 2015-09-02 08:45:51 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"today"}
+  [1m[36mHeroSchedule Load (0.4ms)[0m  [1mSELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."scheduled_on" = '2015-09-02 15:45:51.278290'  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 3]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 17ms (Views: 9.4ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:45:51 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:45:51 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 4]]
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 5]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 1.7ms)
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/4" for 127.0.0.1 at 2015-09-02 08:45:51 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 03 Sep 2015]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "heroes" DISABLE TRIGGER ALL;ALTER TABLE "hero_schedules" DISABLE TRIGGER ALL;ALTER TABLE "holidays" DISABLE TRIGGER ALL
+  [1m[36m (1.7ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'support_heroes_test'[0m
+  [1m[35m (17.2ms)[0m  TRUNCATE TABLE "heroes", "hero_schedules", "holidays" RESTART IDENTITY CASCADE;
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "heroes" ENABLE TRIGGER ALL;ALTER TABLE "hero_schedules" ENABLE TRIGGER ALL;ALTER TABLE "holidays" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/hero_schedules" for 127.0.0.1 at 2015-09-02 08:50:00 -0700
+Processing by HeroSchedulesController#index as HTML
+  [1m[35mHeroSchedule Load (0.8ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dan"], ["last_name", "Johnson"], ["title", "Dynamic Group Analyst of Jewelery, Health & Shoes"], ["bio", "Necessitatibus qui ut. Aut non a ipsa quia incidunt ratione blanditiis. Officiis aut corporis quisquam in commodi soluta nulla."], ["created_at", "2015-09-02 15:50:00.783286"], ["updated_at", "2015-09-02 15:50:00.783286"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Zack"], ["last_name", "Andrews"], ["title", "Chief Group Technician of Toys, Computers & Jewelery"], ["bio", "Aut inventore officiis et quis quisquam. Laboriosam est inventore porro qui voluptatem sed qui. Qui ratione laborum ipsum qui. Et eos dolores accusantium ipsum iure rerum quasi. Quisquam et tempore totam omnis quia ratione."], ["created_at", "2015-09-02 15:50:00.806856"], ["updated_at", "2015-09-02 15:50:00.806856"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Garriot"], ["title", "Product Research Designer of Baby & Electronics"], ["bio", "Sit velit nulla sunt. Sit asperiores dolore aut tempora tempore placeat. Saepe voluptatem earum et accusamus."], ["created_at", "2015-09-02 15:50:00.809062"], ["updated_at", "2015-09-02 15:50:00.809062"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.6ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-02"], ["hero_id", 1], ["created_at", "2015-09-02 15:50:00.826399"], ["updated_at", "2015-09-02 15:50:00.826399"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-03"], ["hero_id", 2], ["created_at", "2015-09-02 15:50:00.831233"], ["updated_at", "2015-09-02 15:50:00.831233"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["scheduled_on", "2015-09-04"], ["hero_id", 1], ["created_at", "2015-09-02 15:50:00.835435"], ["updated_at", "2015-09-02 15:50:00.835435"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "holidays" ("holiday_date", "name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["holiday_date", "2015-09-03"], ["name", "New Relic Day"], ["description", "MyText"], ["created_at", "2015-09-02 15:50:00.843949"], ["updated_at", "2015-09-02 15:50:00.843949"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/2" for 127.0.0.1 at 2015-09-02 08:50:00 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes/today" for 127.0.0.1 at 2015-09-02 08:50:00 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"today"}
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."scheduled_on" = '2015-09-02 15:50:00.872830'  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 1]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/heroes/0" for 127.0.0.1 at 2015-09-02 08:50:00 -0700
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Started GET "/heroes" for 127.0.0.1 at 2015-09-02 08:50:00 -0700
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC[0m
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 3]]
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 1]]
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 2.0ms)
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started POST "/heroes" for 127.0.0.1 at 2015-09-02 08:50:00 -0700
+Processing by HeroesController#create as HTML
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" IS NULL AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_2[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Troy"], ["last_name", "Stoltenberg"], ["title", "Senior Paradigm Consultant of Outdoors"], ["bio", "Perspiciatis eum adipisci tempore voluptatem provident harum. Labore nemo nisi omnis. Explicabo consequatur sed perferendis perspiciatis animi ut cum. Debitis perferendis delectus suscipit similique quidem. Soluta eveniet suscipit."], ["created_at", "2015-09-02 15:50:00.913312"], ["updated_at", "2015-09-02 15:50:00.913312"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-09-02"], ["hero_id", 4], ["created_at", "2015-09-02 15:50:00.916782"], ["updated_at", "2015-09-02 15:50:00.916782"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."id" != 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_2
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Edythe"], ["last_name", "Rath"], ["title", "Central Solutions Officer of Jewelery"], ["bio", "Aperiam voluptas ab accusamus id tenetur facere ut. Voluptatem totam laborum laboriosam. Quis assumenda enim et excepturi enim sit."], ["created_at", "2015-09-02 15:50:00.923653"], ["updated_at", "2015-09-02 15:50:00.923653"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_2
+  [1m[36mHeroSchedule Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" IS NULL) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m

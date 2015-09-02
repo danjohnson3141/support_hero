@@ -6242,3 +6242,676 @@ Processing by HeroesController#index as HTML
   [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-09"]]
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 09 Oct 2015]]
 Completed 200 OK in 122ms (Views: 95.1ms | ActiveRecord: 21.0ms)
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateHeroes (20150831210232)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "heroes" ("id" serial primary key, "first_name" character varying(100) NOT NULL, "last_name" character varying(100), "title" character varying, "bio" text, "created_by" integer, "updated_by" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_heroes_on_created_by" ON "heroes"  ("created_by")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_heroes_on_updated_by" ON "heroes"  ("updated_by")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150831210232"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateHeroSchedules (20150901032623)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "hero_schedules" ("id" serial primary key, "scheduled_on" date, "hero_id" integer, "created_by" integer, "updated_by" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_hero_schedules_on_hero_id" ON "hero_schedules"  ("hero_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_hero_schedules_on_created_by" ON "hero_schedules"  ("created_by")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_hero_schedules_on_updated_by" ON "hero_schedules"  ("updated_by")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_hero_schedules_on_hero_id_and_scheduled_on" ON "hero_schedules"  ("hero_id", "scheduled_on")[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "hero_schedules" ADD CONSTRAINT "fk_rails_8d427748d9"
+FOREIGN KEY ("hero_id")
+  REFERENCES "heroes" ("id")
+
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150901032623"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateHolidays (20150901223238)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "holidays" ("id" serial primary key, "holiday_date" date NOT NULL, "name" character varying(100), "description" text, "created_by" integer, "updated_by" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "index_holidays_on_holiday_date" ON "holidays"  ("holiday_date")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_holidays_on_created_by" ON "holidays"  ("created_by")
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_holidays_on_updated_by" ON "holidays"  ("updated_by")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150901223238"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'hero_schedules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'heroes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'holidays'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mHero Load (0.7ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Sherry"], ["last_name", "Turkle"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Sherry"], ["last_name", "Turkle"], ["created_at", "2015-09-02 14:53:35.574887"], ["updated_at", "2015-09-02 14:53:35.574887"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Suport Hero III"], ["bio", "Currently the Abby Rockefeller Mauzé Professor of the Social Studies of Science and Technology at the Massachusetts Institute of Technology."], ["updated_at", "2015-09-02 14:53:35.577588"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Boris"], ["last_name", "Karloff"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Boris"], ["last_name", "Karloff"], ["created_at", "2015-09-02 14:53:35.581147"], ["updated_at", "2015-09-02 14:53:35.581147"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Suport Hero II"], ["bio", "Boris Karloff was an English-born actor who played the monster in Frankenstein and became synonymous with horror films of the 1930s."], ["updated_at", "2015-09-02 14:53:35.583116"], ["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Vicente"], ["last_name", "Fox"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Vicente"], ["last_name", "Fox"], ["created_at", "2015-09-02 14:53:35.586282"], ["updated_at", "2015-09-02 14:53:35.586282"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Suport Hero Manager"], ["bio", "Vicente Fox Quesada is a Mexican businessman who was President of Mexico from 1 December 2000, to 30 November 2006 under the National Action Party."], ["updated_at", "2015-09-02 14:53:35.587990"], ["id", 3]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Matte"], ["last_name", "Smith"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Matte"], ["last_name", "Smith"], ["created_at", "2015-09-02 14:53:35.590627"], ["updated_at", "2015-09-02 14:53:35.590627"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Time Lord"], ["bio", "Also known as \"The Doctor\". He enjoys traveling in space and time as well. "], ["updated_at", "2015-09-02 14:53:35.593350"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Kevin"], ["last_name", "Smith"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Kevin"], ["last_name", "Smith"], ["created_at", "2015-09-02 14:53:35.596322"], ["updated_at", "2015-09-02 14:53:35.596322"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Super Hero"], ["bio", "Go-to authority on all things Batman"], ["updated_at", "2015-09-02 14:53:35.598385"], ["id", 5]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Zoe"], ["last_name", "Muppet"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Zoe"], ["last_name", "Muppet"], ["created_at", "2015-09-02 14:53:35.601174"], ["updated_at", "2015-09-02 14:53:35.601174"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Children Support Specialist"], ["bio", "Zoe loves to dance and has a wild imagination! Learn more about her at her Muppet page."], ["updated_at", "2015-09-02 14:53:35.603516"], ["id", 6]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Jay"], ["last_name", "Jonah Jameson"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Jay"], ["last_name", "Jonah Jameson"], ["created_at", "2015-09-02 14:53:35.607407"], ["updated_at", "2015-09-02 14:53:35.607407"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Staff Writer"], ["bio", "Grumpy newspaper editor."], ["updated_at", "2015-09-02 14:53:35.609315"], ["id", 7]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Eadon"], ["last_name", "Jacobs"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Eadon"], ["last_name", "Jacobs"], ["created_at", "2015-09-02 14:53:35.611568"], ["updated_at", "2015-09-02 14:53:35.611568"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Support Hero I"], ["bio", "Founder at Plannit"], ["updated_at", "2015-09-02 14:53:35.613239"], ["id", 8]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Franky"], ["last_name", "Stien"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Franky"], ["last_name", "Stien"], ["created_at", "2015-09-02 14:53:35.615313"], ["updated_at", "2015-09-02 14:53:35.615313"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Support Hero IV"], ["bio", "Good friend of Boris"], ["updated_at", "2015-09-02 14:53:35.616873"], ["id", 9]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Luis"], ["last_name", "CK"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Luis"], ["last_name", "CK"], ["created_at", "2015-09-02 14:53:35.618937"], ["updated_at", "2015-09-02 14:53:35.618937"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4  [["title", "Support Hero I"], ["bio", "Support team comic relief."], ["updated_at", "2015-09-02 14:53:35.621032"], ["id", 10]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1 AND "heroes"."last_name" = $2  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Jack"], ["last_name", "Johnson"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["first_name", "Jack"], ["last_name", "Johnson"], ["created_at", "2015-09-02 14:53:35.623184"], ["updated_at", "2015-09-02 14:53:35.623184"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "heroes" SET "title" = $1, "bio" = $2, "updated_at" = $3 WHERE "heroes"."id" = $4[0m  [["title", "Support Hero I"], ["bio", "Music guy"], ["updated_at", "2015-09-02 14:53:35.625397"], ["id", 11]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-09-02"], ["created_at", "2015-09-02 14:53:35.660321"], ["updated_at", "2015-09-02 14:53:35.660321"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-03') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-09-03"], ["created_at", "2015-09-02 14:53:35.665908"], ["updated_at", "2015-09-02 14:53:35.665908"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Vicente"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-04') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 3], ["scheduled_on", "2015-09-04"], ["created_at", "2015-09-02 14:53:35.670733"], ["updated_at", "2015-09-02 14:53:35.670733"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-05') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-09-05"], ["created_at", "2015-09-02 14:53:35.675546"], ["updated_at", "2015-09-02 14:53:35.675546"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Jack"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 11 AND "hero_schedules"."scheduled_on" = '2015-09-06') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 11], ["scheduled_on", "2015-09-06"], ["created_at", "2015-09-02 14:53:35.680103"], ["updated_at", "2015-09-02 14:53:35.680103"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-07') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-07"], ["created_at", "2015-09-02 14:53:35.684339"], ["updated_at", "2015-09-02 14:53:35.684339"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.4ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-08') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-08"], ["created_at", "2015-09-02 14:53:35.689702"], ["updated_at", "2015-09-02 14:53:35.689702"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-09') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-09"], ["created_at", "2015-09-02 14:53:35.693826"], ["updated_at", "2015-09-02 14:53:35.693826"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-10') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-09-10"], ["created_at", "2015-09-02 14:53:35.697366"], ["updated_at", "2015-09-02 14:53:35.697366"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Vicente"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.2ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-11') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 3], ["scheduled_on", "2015-09-11"], ["created_at", "2015-09-02 14:53:35.700636"], ["updated_at", "2015-09-02 14:53:35.700636"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Zoe"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 6 AND "hero_schedules"."scheduled_on" = '2015-09-12') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 6], ["scheduled_on", "2015-09-12"], ["created_at", "2015-09-02 14:53:35.704134"], ["updated_at", "2015-09-02 14:53:35.704134"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-13') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-13"], ["created_at", "2015-09-02 14:53:35.708767"], ["updated_at", "2015-09-02 14:53:35.708767"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-14') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-14"], ["created_at", "2015-09-02 14:53:35.712712"], ["updated_at", "2015-09-02 14:53:35.712712"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Zoe"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 6 AND "hero_schedules"."scheduled_on" = '2015-09-15') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 6], ["scheduled_on", "2015-09-15"], ["created_at", "2015-09-02 14:53:35.717134"], ["updated_at", "2015-09-02 14:53:35.717134"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Jay"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 7 AND "hero_schedules"."scheduled_on" = '2015-09-16') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 7], ["scheduled_on", "2015-09-16"], ["created_at", "2015-09-02 14:53:35.720572"], ["updated_at", "2015-09-02 14:53:35.720572"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.2ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-17') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-09-17"], ["created_at", "2015-09-02 14:53:35.723617"], ["updated_at", "2015-09-02 14:53:35.723617"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Eadon"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 8 AND "hero_schedules"."scheduled_on" = '2015-09-18') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 8], ["scheduled_on", "2015-09-18"], ["created_at", "2015-09-02 14:53:35.728014"], ["updated_at", "2015-09-02 14:53:35.728014"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-19') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-19"], ["created_at", "2015-09-02 14:53:35.732281"], ["updated_at", "2015-09-02 14:53:35.732281"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Franky"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 9 AND "hero_schedules"."scheduled_on" = '2015-09-20') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 9], ["scheduled_on", "2015-09-20"], ["created_at", "2015-09-02 14:53:35.737396"], ["updated_at", "2015-09-02 14:53:35.737396"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-21') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-09-21"], ["created_at", "2015-09-02 14:53:35.741422"], ["updated_at", "2015-09-02 14:53:35.741422"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Matte"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-09-22') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 4], ["scheduled_on", "2015-09-22"], ["created_at", "2015-09-02 14:53:35.744459"], ["updated_at", "2015-09-02 14:53:35.744459"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Franky"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 9 AND "hero_schedules"."scheduled_on" = '2015-09-23') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 9], ["scheduled_on", "2015-09-23"], ["created_at", "2015-09-02 14:53:35.747478"], ["updated_at", "2015-09-02 14:53:35.747478"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Franky"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 9 AND "hero_schedules"."scheduled_on" = '2015-09-24') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 9], ["scheduled_on", "2015-09-24"], ["created_at", "2015-09-02 14:53:35.751404"], ["updated_at", "2015-09-02 14:53:35.751404"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Kevin"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-09-25') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 5], ["scheduled_on", "2015-09-25"], ["created_at", "2015-09-02 14:53:35.755614"], ["updated_at", "2015-09-02 14:53:35.755614"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Boris"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-09-26') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 2], ["scheduled_on", "2015-09-26"], ["created_at", "2015-09-02 14:53:35.759913"], ["updated_at", "2015-09-02 14:53:35.759913"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Franky"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 9 AND "hero_schedules"."scheduled_on" = '2015-09-27') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 9], ["scheduled_on", "2015-09-27"], ["created_at", "2015-09-02 14:53:35.764570"], ["updated_at", "2015-09-02 14:53:35.764570"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Vicente"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 3 AND "hero_schedules"."scheduled_on" = '2015-09-28') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 3], ["scheduled_on", "2015-09-28"], ["created_at", "2015-09-02 14:53:35.768699"], ["updated_at", "2015-09-02 14:53:35.768699"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Luis"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 10 AND "hero_schedules"."scheduled_on" = '2015-09-29') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 10], ["scheduled_on", "2015-09-29"], ["created_at", "2015-09-02 14:53:35.772702"], ["updated_at", "2015-09-02 14:53:35.772702"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Eadon"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 8 AND "hero_schedules"."scheduled_on" = '2015-09-30') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 8], ["scheduled_on", "2015-09-30"], ["created_at", "2015-09-02 14:53:35.776231"], ["updated_at", "2015-09-02 14:53:35.776231"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Boris"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 2 AND "hero_schedules"."scheduled_on" = '2015-10-01') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 2], ["scheduled_on", "2015-10-01"], ["created_at", "2015-09-02 14:53:35.780157"], ["updated_at", "2015-09-02 14:53:35.780157"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-10-02') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-10-02"], ["created_at", "2015-09-02 14:53:35.783940"], ["updated_at", "2015-09-02 14:53:35.783940"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Matte"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 4 AND "hero_schedules"."scheduled_on" = '2015-10-03') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 4], ["scheduled_on", "2015-10-03"], ["created_at", "2015-09-02 14:53:35.787766"], ["updated_at", "2015-09-02 14:53:35.787766"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Jay"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 7 AND "hero_schedules"."scheduled_on" = '2015-10-04') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 7], ["scheduled_on", "2015-10-04"], ["created_at", "2015-09-02 14:53:35.791712"], ["updated_at", "2015-09-02 14:53:35.791712"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "James"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Kevin"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 5 AND "hero_schedules"."scheduled_on" = '2015-10-06') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 5], ["scheduled_on", "2015-10-06"], ["created_at", "2015-09-02 14:53:35.795619"], ["updated_at", "2015-09-02 14:53:35.795619"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Sherry"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-10-07') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 1], ["scheduled_on", "2015-10-07"], ["created_at", "2015-09-02 14:53:35.798958"], ["updated_at", "2015-09-02 14:53:35.798958"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-10-08') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-10-08"], ["created_at", "2015-09-02 14:53:35.802667"], ["updated_at", "2015-09-02 14:53:35.802667"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Jack"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 11 AND "hero_schedules"."scheduled_on" = '2015-10-09') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 11], ["scheduled_on", "2015-10-09"], ["created_at", "2015-09-02 14:53:35.805788"], ["updated_at", "2015-09-02 14:53:35.805788"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["first_name", "Sherry"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-10-10') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["hero_id", 1], ["scheduled_on", "2015-10-10"], ["created_at", "2015-09-02 14:53:35.809686"], ["updated_at", "2015-09-02 14:53:35.809686"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."first_name" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["first_name", "Jack"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.3ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 11 AND "hero_schedules"."scheduled_on" = '2015-10-11') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "hero_schedules" ("hero_id", "scheduled_on", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hero_id", 11], ["scheduled_on", "2015-10-11"], ["created_at", "2015-09-02 14:53:35.813706"], ["updated_at", "2015-09-02 14:53:35.813706"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHoliday Load (0.5ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-01-01"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["holiday_date", "2015-01-01"], ["created_at", "2015-09-02 14:53:35.826194"], ["updated_at", "2015-09-02 14:53:35.826194"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4  [["name", "New Years Day"], ["description", "I will never drink again!"], ["updated_at", "2015-09-02 14:53:35.828751"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-01-19"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["holiday_date", "2015-01-19"], ["created_at", "2015-09-02 14:53:35.831626"], ["updated_at", "2015-09-02 14:53:35.831626"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4[0m  [["name", "Martin Luther King"], ["description", ""], ["updated_at", "2015-09-02 14:53:35.833735"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-02-16"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["holiday_date", "2015-02-16"], ["created_at", "2015-09-02 14:53:35.836649"], ["updated_at", "2015-09-02 14:53:35.836649"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4  [["name", "Presidents Day"], ["description", ""], ["updated_at", "2015-09-02 14:53:35.838575"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-05-25"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["holiday_date", "2015-05-25"], ["created_at", "2015-09-02 14:53:35.841435"], ["updated_at", "2015-09-02 14:53:35.841435"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4[0m  [["name", "Memorial Day"], ["description", ""], ["updated_at", "2015-09-02 14:53:35.843310"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mHoliday Load (0.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-07-03"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["holiday_date", "2015-07-03"], ["created_at", "2015-09-02 14:53:35.846086"], ["updated_at", "2015-09-02 14:53:35.846086"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4  [["name", "Independence Day (observed)"], ["description", "Don't loose any fingers"], ["updated_at", "2015-09-02 14:53:35.847855"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-07"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["holiday_date", "2015-09-07"], ["created_at", "2015-09-02 14:53:35.850543"], ["updated_at", "2015-09-02 14:53:35.850543"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4[0m  [["name", "Labor Day"], ["description", "Have a great weekend! You've earned it"], ["updated_at", "2015-09-02 14:53:35.852478"], ["id", 6]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-12"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["holiday_date", "2015-10-12"], ["created_at", "2015-09-02 14:53:35.854592"], ["updated_at", "2015-09-02 14:53:35.854592"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4  [["name", "Columbus Day"], ["description", "Hmmm...."], ["updated_at", "2015-09-02 14:53:35.856059"], ["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-11-11"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["holiday_date", "2015-11-11"], ["created_at", "2015-09-02 14:53:35.858070"], ["updated_at", "2015-09-02 14:53:35.858070"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4[0m  [["name", "Veterans Day"], ["description", "Thank you veterans"], ["updated_at", "2015-09-02 14:53:35.859550"], ["id", 8]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-11-26"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["holiday_date", "2015-11-26"], ["created_at", "2015-09-02 14:53:35.861450"], ["updated_at", "2015-09-02 14:53:35.861450"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4  [["name", "Thanksgiving"], ["description", "Gooble gooble"], ["updated_at", "2015-09-02 14:53:35.862938"], ["id", 9]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-11-27"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["holiday_date", "2015-11-27"], ["created_at", "2015-09-02 14:53:35.864709"], ["updated_at", "2015-09-02 14:53:35.864709"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4[0m  [["name", "Day after Thanksgiving"], ["description", "Let's go shopping"], ["updated_at", "2015-09-02 14:53:35.866315"], ["id", 10]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-12-25"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "holidays" ("holiday_date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["holiday_date", "2015-12-25"], ["created_at", "2015-09-02 14:53:35.868207"], ["updated_at", "2015-09-02 14:53:35.868207"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "holidays" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "holidays"."id" = $4  [["name", "Christmas Day"], ["description", "Presents and family!!"], ["updated_at", "2015-09-02 14:53:35.869930"], ["id", 11]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/heroes/5" for ::1 at 2015-09-02 10:03:25 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[35mHero Load (0.8ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mHeroSchedule Load (0.8ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 5]]
+  [1m[35mHoliday Load (1.4ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-09"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 09 Sep 2015]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 10 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-13"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 13 Sep 2015]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-25"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 25 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 02 Oct 2015]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-06"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 06 Oct 2015]]
+Completed 200 OK in 78ms (Views: 43.0ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/heroes/5" for ::1 at 2015-09-02 10:03:59 -0700
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 5]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-09"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 09 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 10 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-13"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 13 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-25"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 25 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 02 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-06"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 06 Oct 2015]]
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/heroes" for ::1 at 2015-09-02 10:11:19 -0700
+Processing by HeroesController#index as */*
+  [1m[35mHero Load (0.5ms)[0m  SELECT "heroes".* FROM "heroes"  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 10]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-29"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 29 Sep 2015]]
+  [1m[35mHeroSchedule Load (0.3ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 3]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 11 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-28"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 28 Sep 2015]]
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 8]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-18"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 18 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-30"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 30 Sep 2015]]
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 11]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-06"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 06 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-09"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 09 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 11 Oct 2015]]
+  [1m[36mHeroSchedule Load (0.1ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 7]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-16"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 16 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 04 Oct 2015]]
+  [1m[35mHeroSchedule Load (0.1ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 2]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-17"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 17 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-26"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 26 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-01"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 01 Oct 2015]]
+  [1m[36mHeroSchedule Load (0.1ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 6]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-12"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 12 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-15"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 15 Sep 2015]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 5]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-09"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 09 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-10"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 10 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-13"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 13 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-25"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 25 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 02 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-06"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 06 Oct 2015]]
+  [1m[36mHeroSchedule Load (0.2ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 4]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-05"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 05 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-08"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 08 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-14"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 14 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-22"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 22 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-03"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 03 Oct 2015]]
+  [1m[35mHeroSchedule Load (0.1ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 9]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-20"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 20 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-23"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 23 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-24"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 24 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-27"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 27 Sep 2015]]
+  [1m[36mHeroSchedule Load (0.1ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC[0m  [["hero_id", 1]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-07"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 07 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-19"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 19 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-21"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 21 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-07"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 07 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-08"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 08 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 10 Oct 2015]]
+Completed 200 OK in 42ms (Views: 33.6ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/heroes/today" for ::1 at 2015-09-02 10:13:07 -0700
+Processing by HeroesController#show as */*
+  Parameters: {"id"=>"today"}
+  [1m[35mHeroSchedule Load (0.4ms)[0m  SELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."scheduled_on" = '2015-09-02 17:13:07.200265'  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mHeroSchedule Load (0.2ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."hero_id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC  [["hero_id", 1]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-07"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 07 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-19"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 19 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-21"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 21 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-07"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 07 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-08"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 08 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-10"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 10 Oct 2015]]
+Completed 200 OK in 11ms (Views: 5.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/heroes" for ::1 at 2015-09-02 10:15:01 -0700
+Processing by HeroesController#create as */*
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "New"], ["last_name", "Guy"], ["title", "Intern"], ["bio", "A little green."], ["created_at", "2015-09-02 17:15:01.335930"], ["updated_at", "2015-09-02 17:15:01.335930"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 7ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/heroes" for ::1 at 2015-09-02 10:19:02 -0700
+Processing by HeroesController#create as */*
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "New"], ["last_name", "Guy"], ["title", "Intern"], ["bio", "A little green."], ["created_at", "2015-09-02 17:19:02.526367"], ["updated_at", "2015-09-02 17:19:02.526367"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/heroes" for ::1 at 2015-09-02 10:20:51 -0700
+Processing by HeroesController#create as */*
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern", "bio"=>"A little green."}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "New"], ["last_name", "Guy"], ["title", "Intern"], ["bio", "A little green."], ["created_at", "2015-09-02 17:20:51.441248"], ["updated_at", "2015-09-02 17:20:51.441248"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 4ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/heroes/12" for ::1 at 2015-09-02 10:21:42 -0700
+Processing by HeroesController#update as */*
+  Parameters: {"hero"=>{"first_name"=>"New", "last_name"=>"Guy", "title"=>"Intern Level 2", "bio"=>"A little green."}, "id"=>"12"}
+  [1m[35mHero Load (0.4ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "heroes" SET "title" = $1, "updated_at" = $2 WHERE "heroes"."id" = $3  [["title", "Intern Level 2"], ["updated_at", "2015-09-02 17:21:42.046861"], ["id", 12]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Completed 204 No Content in 5ms (ActiveRecord: 1.0ms)
+
+
+Started POST "/heroes/12" for ::1 at 2015-09-02 10:30:36 -0700
+
+ActionController::RoutingError (No route matches [POST] "/heroes/12"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (11.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fcb9e986068 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fcb9e985be0 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fcb9e97cae0 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/heroes" for ::1 at 2015-09-02 10:30:49 -0700
+Processing by HeroesController#create as */*
+  Parameters: {"hero"=>{"first_name"=>"Johnny", "last_name"=>"New Guy", "title"=>"Intern", "bio"=>"The newest person on the team."}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "heroes" ("first_name", "last_name", "title", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Johnny"], ["last_name", "New Guy"], ["title", "Intern"], ["bio", "The newest person on the team."], ["created_at", "2015-09-02 17:30:49.547120"], ["updated_at", "2015-09-02 17:30:49.547120"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 201 Created in 4ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/heroes/15" for ::1 at 2015-09-02 10:37:33 -0700
+Processing by HeroesController#destroy as */*
+  Parameters: {"hero"=>{"first_name"=>"Johnny", "last_name"=>"New Guy", "title"=>"Intern", "bio"=>"The newest person on the team."}, "id"=>"15"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 15]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "heroes" WHERE "heroes"."id" = $1[0m  [["id", 15]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Completed 204 No Content in 4ms (ActiveRecord: 1.8ms)

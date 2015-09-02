@@ -14,43 +14,33 @@ class HeroSchedulesController < ApplicationController
 
   # GET /hero_schedules/1
   def show
-  end
-
-  # GET /hero_schedules/today
-  def today
-    render json: HeroSchedule.today
+    render json: @hero_schedule, serializer: HeroScheduleSerializer
   end
 
   # POST /hero_schedules
   def create
     @hero_schedule = HeroSchedule.new(hero_schedule_params)
 
-    respond_to do |format|
-      if @hero_schedule.save
-        format.html { redirect_to @hero_schedule, notice: 'Hero schedule was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @hero_schedule.save
+      render json: @hero_schedule, serializer: HeroScheduleSerializer, status: :created
+    else
+      render json: { errors: @hero_schedule.errors }, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /hero_schedules/1
   def update
-    respond_to do |format|
-      if @hero_schedule.update(hero_schedule_params)
-        format.html { redirect_to @hero_schedule, notice: 'Hero schedule was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @hero_schedule.update(hero_schedule_params)
+      head :no_content
+    else
+      render json: { errors: @hero_schedule.errors }, status: :unprocessable_entity
     end
   end
 
   # DELETE /hero_schedules/1
   def destroy
     @hero_schedule.destroy
-    respond_to do |format|
-      format.html { redirect_to hero_schedules_url, notice: 'Hero schedule was successfully destroyed.' }
-    end
+    head :no_content
   end
 
   private
