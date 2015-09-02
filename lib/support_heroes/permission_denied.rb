@@ -1,0 +1,1 @@
+class SupportHero::PermissionDenied < StandardError; end

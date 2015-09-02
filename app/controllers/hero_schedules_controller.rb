@@ -46,6 +46,6 @@ class HeroSchedulesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def hero_schedule_params
-      params.require(:hero_schedule).permit(:scheduled_on, :hero_id, :created_by, :updated_by)
+      params.require(:hero_schedule).permit(:scheduled_on, :hero_id)
     end
 end

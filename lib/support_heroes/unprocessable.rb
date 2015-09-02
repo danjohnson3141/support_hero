@@ -1,0 +1,1 @@
+class SupportHero::Unprocessable < StandardError; end

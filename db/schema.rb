@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901223238) do
+ActiveRecord::Schema.define(version: 20150902215245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hero_preferences", force: :cascade do |t|
+    t.date     "scheduled_on"
+    t.integer  "hero_id"
+    t.boolean  "can_schedule"
+    t.text     "notes"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "hero_preferences", ["created_by"], name: "index_hero_preferences_on_created_by", using: :btree
+  add_index "hero_preferences", ["hero_id", "scheduled_on"], name: "index_hero_preferences_on_hero_id_and_scheduled_on", using: :btree
+  add_index "hero_preferences", ["hero_id"], name: "index_hero_preferences_on_hero_id", using: :btree
+  add_index "hero_preferences", ["updated_by"], name: "index_hero_preferences_on_updated_by", using: :btree
 
   create_table "hero_schedules", force: :cascade do |t|
     t.date     "scheduled_on"
@@ -58,5 +74,6 @@ ActiveRecord::Schema.define(version: 20150901223238) do
   add_index "holidays", ["holiday_date"], name: "index_holidays_on_holiday_date", unique: true, using: :btree
   add_index "holidays", ["updated_by"], name: "index_holidays_on_updated_by", using: :btree
 
+  add_foreign_key "hero_preferences", "heroes"
   add_foreign_key "hero_schedules", "heroes"
 end

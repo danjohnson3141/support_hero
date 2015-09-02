@@ -6915,3 +6915,538 @@ Processing by HeroesController#destroy as */*
   [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "heroes" WHERE "heroes"."id" = $1[0m  [["id", 15]]
   [1m[35m (0.8ms)[0m  COMMIT
 Completed 204 No Content in 4ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-02 14:11:09 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HeroSchedulesController#index as */*
+  [1m[35mHeroSchedule Load (1.1ms)[0m  SELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC
+  [1m[36mHoliday Load (2.3ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-02"]]
+  [1m[35mHero Load (0.8ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-03"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-04"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-05"]]
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 05 Sep 2015]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-06"]]
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 06 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-07"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 07 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-08"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 08 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-09"]]
+  [1m[35mHero Load (0.4ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 09 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 10 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 11 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-12"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 12 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-13"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 13 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-14"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 14 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-15"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 15 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-16"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 16 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-17"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 17 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-18"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 18 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-19"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 19 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-20"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 20 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-21"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 21 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-22"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 22 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-23"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 23 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-24"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 24 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-25"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 25 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-26"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 26 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-27"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 27 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-28"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 28 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-29"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 29 Sep 2015]]
+  [1m[35mHoliday Load (0.4ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-30"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 30 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-01"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 01 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 02 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 03 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 04 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-06"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 06 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-07"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 07 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-08"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 08 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-09"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 09 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-10"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 10 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 11 Oct 2015]]
+Completed 200 OK in 108ms (Views: 82.7ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/hero_schedules?start_date=2015-09-04" for ::1 at 2015-09-02 14:12:05 -0700
+Processing by HeroSchedulesController#index as */*
+  Parameters: {"start_date"=>"2015-09-04"}
+  [1m[36mHeroSchedule Load (0.6ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules" WHERE (scheduled_on >= '2015-09-04')  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-04"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 04 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-05"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 05 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-06"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 06 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-07"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 07 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-08"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 08 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-09"]]
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 09 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 10 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 11 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-12"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 12 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-13"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 13 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-14"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 14 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-15"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 15 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-16"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 16 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-17"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 17 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-18"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 18 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-19"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 19 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-20"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 20 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-21"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 21 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-22"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 22 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-23"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 23 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-24"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 24 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-25"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 25 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-26"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 26 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-27"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 27 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-28"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 28 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-29"]]
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 29 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-30"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 30 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-01"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 01 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-02"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 02 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-03"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 03 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-04"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 04 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-06"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 06 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-07"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 07 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-08"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 08 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-09"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 09 Oct 2015]]
+  [1m[36mHoliday Load (0.4ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-10"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 10 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 11 Oct 2015]]
+Completed 200 OK in 56ms (Views: 48.0ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/hero_schedules/4" for ::1 at 2015-09-02 14:22:53 -0700
+Processing by HeroSchedulesController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/hero_schedules/44" for ::1 at 2015-09-02 14:23:01 -0700
+Processing by HeroSchedulesController#show as */*
+  Parameters: {"id"=>"44"}
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 44]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/hero_schedules" for ::1 at 2015-09-02 14:24:10 -0700
+Processing by HeroSchedulesController#index as */*
+  [1m[36mHeroSchedule Load (0.6ms)[0m  [1mSELECT "hero_schedules".* FROM "hero_schedules"  ORDER BY "hero_schedules"."scheduled_on" ASC[0m
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 02 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-03"]]
+  [1m[36mHero Load (0.3ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 03 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-04"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 04 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-05"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 05 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-06"]]
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 06 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-07"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 07 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-08"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 08 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-09"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 09 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-10"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 10 Sep 2015]]
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 11 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-12"]]
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 12 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-13"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 13 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-14"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 14 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-15"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 15 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-16"]]
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 16 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-17"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 17 Sep 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-18"]]
+  [1m[35mHero Load (0.3ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 18 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-19"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 19 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-20"]]
+  [1m[35mHero Load (0.1ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 20 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-21"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 21 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-22"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Tue, 22 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-23"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 23 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-24"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Thu, 24 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-25"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Fri, 25 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-26"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sat, 26 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-27"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sun, 27 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-28"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Mon, 28 Sep 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-29"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 29 Sep 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-09-30"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 30 Sep 2015]]
+  [1m[35mHoliday Load (0.3ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-01"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 01 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-02"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 02 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-03"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 03 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-04"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 04 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-06"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Tue, 06 Oct 2015]]
+  [1m[36mHoliday Load (0.2ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-07"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Wed, 07 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-08"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Thu, 08 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-09"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Fri, 09 Oct 2015]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Sat, 10 Oct 2015]]
+  [1m[36mHoliday Load (0.1ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", "2015-10-11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1[0m  [["holiday_date", Sun, 11 Oct 2015]]
+Completed 200 OK in 63ms (Views: 54.1ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/hero_schedules/1" for ::1 at 2015-09-02 14:24:13 -0700
+Processing by HeroSchedulesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mHero Load (0.2ms)[0m  SELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/hero_schedules/1" for ::1 at 2015-09-02 14:24:29 -0700
+Processing by HeroSchedulesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroSchedule Load (0.3ms)[0m  [1mSELECT  "hero_schedules".* FROM "hero_schedules" WHERE "hero_schedules"."id" = $1  ORDER BY "hero_schedules"."scheduled_on" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mHoliday Load (0.1ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-09-02"]]
+  [1m[36mHero Load (0.1ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Wed, 02 Sep 2015]]
+Completed 200 OK in 24ms (Views: 11.1ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/hero_schedules/1" for ::1 at 2015-09-02 14:38:27 -0700
+
+ActionController::RoutingError (No route matches [POST] "/hero_schedules/1"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/danjohnson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.3ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/danjohnson/.rvm/gems/ruby-2.2.0@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.9ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fee431214f0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fee43120b68 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fee43118698 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/hero_schedules" for ::1 at 2015-09-02 14:38:41 -0700
+Processing by HeroSchedulesController#create as */*
+  Parameters: {"hero_schedule"=>{"scheduled_on"=>"2015-09-02", "hero_id"=>1}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHeroSchedule Exists (0.4ms)[0m  SELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-09-02') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 310ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/hero_schedules" for ::1 at 2015-09-02 14:39:35 -0700
+Processing by HeroSchedulesController#create as */*
+  Parameters: {"hero_schedule"=>{"scheduled_on"=>"2015-10-12", "hero_id"=>1}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mHeroSchedule Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "hero_schedules" WHERE ("hero_schedules"."hero_id" = 1 AND "hero_schedules"."scheduled_on" = '2015-10-12') LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "hero_schedules" ("scheduled_on", "hero_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["scheduled_on", "2015-10-12"], ["hero_id", 1], ["created_at", "2015-09-02 21:39:35.792799"], ["updated_at", "2015-09-02 21:39:35.792799"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", "2015-10-12"]]
+  [1m[36mHero Load (0.2ms)[0m  [1mSELECT  "heroes".* FROM "heroes" WHERE "heroes"."id" = $1  ORDER BY "heroes"."last_name" ASC, "heroes"."first_name" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "holidays".* FROM "holidays" WHERE "holidays"."holiday_date" = $1 LIMIT 1  [["holiday_date", Mon, 12 Oct 2015]]
+Completed 201 Created in 12ms (Views: 5.3ms | ActiveRecord: 3.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateHeroPreferences (20150902215245)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "hero_preferences" ("id" serial primary key, "scheduled_on" date, "hero_id" integer, "can_schedule" boolean, "notes" text, "created_by" integer, "updated_by" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_hero_preferences_on_hero_id" ON "hero_preferences"  ("hero_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_hero_preferences_on_created_by" ON "hero_preferences"  ("created_by")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_hero_preferences_on_updated_by" ON "hero_preferences"  ("updated_by")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_hero_preferences_on_hero_id_and_scheduled_on" ON "hero_preferences"  ("hero_id", "scheduled_on")[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "hero_preferences" ADD CONSTRAINT "fk_rails_38b65aaec1"
+FOREIGN KEY ("hero_id")
+  REFERENCES "heroes" ("id")
+
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150902215245"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'hero_preferences'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'hero_schedules'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'heroes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'holidays'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/holidays" for ::1 at 2015-09-02 15:06:14 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HolidaysController#index as */*
+  [1m[35mHoliday Load (0.4ms)[0m  SELECT "holidays".* FROM "holidays"  ORDER BY "holidays"."holiday_date" ASC
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/holidays" for ::1 at 2015-09-02 15:07:00 -0700
+Processing by HolidaysController#index as */*
+  [1m[36mHoliday Load (0.4ms)[0m  [1mSELECT "holidays".* FROM "holidays"  ORDER BY "holidays"."holiday_date" ASC[0m
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 2.3ms)
