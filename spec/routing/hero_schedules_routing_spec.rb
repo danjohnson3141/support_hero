@@ -7,16 +7,8 @@ RSpec.describe HeroSchedulesController, type: :routing do
       expect(:get => "/hero_schedules").to route_to("hero_schedules#index")
     end
 
-    it "routes to #new" do
-      expect(:get => "/hero_schedules/new").to route_to("hero_schedules#new")
-    end
-
     it "routes to #show" do
       expect(:get => "/hero_schedules/1").to route_to("hero_schedules#show", :id => "1")
-    end
-
-    it "routes to #edit" do
-      expect(:get => "/hero_schedules/1/edit").to route_to("hero_schedules#edit", :id => "1")
     end
 
     it "routes to #create" do

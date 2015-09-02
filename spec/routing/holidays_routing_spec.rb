@@ -1,4 +1,4 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe HolidaysController, type: :routing do
   describe "routing" do
@@ -7,16 +7,8 @@ RSpec.describe HolidaysController, type: :routing do
       expect(:get => "/holidays").to route_to("holidays#index")
     end
 
-    it "routes to #new" do
-      expect(:get => "/holidays/new").to route_to("holidays#new")
-    end
-
     it "routes to #show" do
       expect(:get => "/holidays/1").to route_to("holidays#show", :id => "1")
-    end
-
-    it "routes to #edit" do
-      expect(:get => "/holidays/1/edit").to route_to("holidays#edit", :id => "1")
     end
 
     it "routes to #create" do

@@ -10,8 +10,13 @@ class HeroSchedule < ActiveRecord::Base
     self.where(scheduled_on: Time.now).first.hero
   end
 
-  def is_holiday?
-    Holiday.find_by(holiday_date: self.scheduled_on).present?
+  def holiday
+    Holiday.find_by(holiday_date: self.scheduled_on)
+  end
+
+  # is this scheduled_on a weekend? (Saturday or Sunday)
+  def weekend?
+    scheduled_on.saturday? || scheduled_on.sunday?
   end
 
 end
