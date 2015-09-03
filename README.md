@@ -32,3 +32,7 @@ Please visit this project's <a href="https://github.com/danjohnson3141/support_h
 * Active Model Serializer to deliver the best JSON
 * Tests written in Rspec
 * FactoryGirl for mocking and Faker for diverse testing
+
+ERD
+
+![ERD](http://s21.postimg.org/4geqs39jb/Screen_Shot_2015_09_03_at_2_28_23_PM.png)
