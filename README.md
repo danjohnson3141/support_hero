@@ -26,6 +26,9 @@ Please visit this project's <a href="https://github.com/danjohnson3141/support_h
 * rake db:create && rake db:migrate && rake db:seed
 * start rails server with `rails s` you can optionally specify a port by adding `-p####`. For example `rails s -p3141` to run server on port 3141.
 
+## Heroku
+This project is hosted on Heroku at <a href="https://polar-cliffs-1747.herokuapp.com">https://polar-cliffs-1747.herokuapp.com</a>. All API routes can be reached at this address.
+
 ## Features
 * RESTful API written in RoR
 * Postgres Database
