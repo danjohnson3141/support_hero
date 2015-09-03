@@ -12,13 +12,13 @@ The requirements are:
 * - 4b. Should take into account weekends and California’s holidays.
 * 5. Users should be able to swap duty with another user’s specific day
 
-The instructions called for "Heavy emphasis pretending this is a system you would deploy". With this in mind, and using my imagination, I foresaw that this application would grow to be needed not only on a the desktop but on mobile devices as well. To facilitate this and I choose to create a RESTful (mostly) API written in Ruby on Rails. The API would provide all of the requirements above to any client today and potentially in the future.
+The instructions called for "Heavy emphasis pretending this is a system you would deploy". With this in mind, and using my imagination, I foresaw that this application would grow to be needed not only on the desktop but on mobile devices as well. To facilitate this I choose to create a RESTful (mostly) API written in Ruby on Rails. The API would provide all of the requirements above to any client today and potentially in the future.
 
 The API has intuative and RESTful commands and serves up beautiful and useful JSON output. To help the future developers implementing the API I have provided thorough documentation on this <a href="https://github.com/danjohnson3141/support_hero/wiki">wiki</a>.
 
 It has been my experience that first and foremost the business logic needs to be locked down in the back-end. Once that is solid the front-end will follow. This is why I have chosen to focus my time here. There is no UI but the API can be accessed easily using the curl samples found in the wiki. Alternately <a href="https://www.getpostman.com/">Postman</a> or similar programs can be used.
 
-
+Please visit this project's <a href="https://github.com/danjohnson3141/support_hero/wiki">wiki</a> for a line-by-line breakdown of the challenge and how this API will satisfy the requirements.
 
 ## API Installation
 * clone repository
