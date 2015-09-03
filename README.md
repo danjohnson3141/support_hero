@@ -28,6 +28,7 @@ Please visit this project's <a href="https://github.com/danjohnson3141/support_h
 
 ## Features
 * RESTful API written in RoR
+* Postgres Database
 * Active Model Serializer to deliver the best JSON
 * Tests written in Rspec
 * FactoryGirl for mocking and Faker for diverse testing
