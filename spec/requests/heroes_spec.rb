@@ -39,7 +39,7 @@ RSpec.describe "Heroes", type: :request do
       json["hero"]["bio"].should eq @hero2.bio
     end
 
-    it "Returns single hero matching id param" do
+    it "Returns today's support hero" do
       get "/heroes/today"
       response.status.should eq 200
       json["hero"]["id"].should eq @hero1.id
@@ -57,12 +57,42 @@ RSpec.describe "Heroes", type: :request do
   
   describe "POST /heroes" do
     it "Creating a new hero returns that hero's data and 201 (created)" do
-      post "/heroes", { hero: { first_name: "New", last_name: "Guy", title: "Intern", bio: "A little green." } }
+      post "/heroes", { hero: { first_name: "Johnny", last_name: "New Guy", title: "Intern", bio: "The newest person on the team." } }
       response.status.should eq 201
-      json["hero"]["first_name"].should eq "New"
-      json["hero"]["last_name"].should eq "Guy"
+      json["hero"]["first_name"].should eq "Johnny"
+      json["hero"]["last_name"].should eq "New Guy"
       json["hero"]["title"].should eq "Intern"
-      json["hero"]["bio"].should eq "A little green."
+      json["hero"]["bio"].should eq "The newest person on the team."
+    end
+
+    it "Unprocessable posts returns 422 (Unprocessable)" do
+      post "/heroes", { hero: { first_name: nil } }
+      response.status.should eq 422
+      json['errors'].to_s.should include '{"first_name"=>["can\'t be blank"]}'
+    end
+  end
+  
+  describe "PUT /heroes" do
+    before(:each) do
+      @hero = create(:hero, first_name: "Johnny", last_name: "New Guy", title: "Intern", bio: "The newest person on the team.")
+    end
+
+    it "Updates a hero returns 204 (created)" do
+      put "/heroes/#{@hero.id}", { hero: { title: "Intern Level II", bio: "No longer the newest person" } }
+      response.status.should eq 204
+      @hero.reload.title.should eq "Intern Level II"
+      @hero.bio.should eq "No longer the newest person"
+    end
+
+    it "Unprocessable puts returns 422 (Unprocessable)" do
+      put "/heroes/#{@hero.id}", { hero: { first_name: nil, title: "Intern Level II" } }
+      response.status.should eq 422
+      json['errors'].to_s.should include '{"first_name"=>["can\'t be blank"]}'
+    end
+
+    it "Returns 404 when id param not found" do
+      put "/heroes/0", { hero: { first_name: 'Luke', title: "Jedi" } }
+      response.status.should eq 404
     end
   end
 

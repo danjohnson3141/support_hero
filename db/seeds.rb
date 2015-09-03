@@ -55,3 +55,14 @@ puts 'Seeding holidays table...'
 holidays.each do |holiday|
 	Holiday.find_or_create_by(holiday_date: holiday[:holiday_date]).update_attributes(holiday)
 end
+
+puts 'Seeding hero_preferences table...'
+10.times do
+	hero_preference = {
+		scheduled_on: [*-1..100].sample.days.from_now, 
+		can_schedule: [true, false].sample,
+		hero: Hero.all.sample, 
+		notes: Faker::Lorem.paragraph(2)
+	}
+	HeroPreference.create(hero_preference)
+end

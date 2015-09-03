@@ -4,30 +4,30 @@ class HeroesController < ApplicationController
 
   # GET /heroes
   def index
-    @heroes = Hero.all
-    render json: @heroes, show_schedule: true, each_serializer: HeroSerializer
+    heroes = Hero.all
+    render json: heroes, show_schedule: true, each_serializer: HeroSerializer
   end
 
   # GET /heroes/:id
   # GET /heroes/today for today's scheduled support here (TODO: maybe not 100% RESTful)
   def show
     if params[:id].downcase == 'today'
-      @hero = HeroSchedule.today_hero
+      hero = HeroSchedule.today_hero
     else
-      @hero = Hero.find(params[:id])
+      hero = Hero.find(params[:id])
     end
 
-    render json: @hero, show_schedule: true, serializer: HeroSerializer
+    render json: hero, show_schedule: true, serializer: HeroSerializer
   end
 
   # POST /heroes
   def create
-    @hero = Hero.new(hero_params)
+    hero = Hero.new(hero_params)
 
-    if @hero.save
-      render json: @hero, serializer: HeroSerializer, status: :created
+    if hero.save
+      render json: hero, serializer: HeroSerializer, status: :created
     else
-      render json: { errors: @hero.errors }, status: :unprocessable_entity
+      render json: { errors: hero.errors }, status: :unprocessable_entity
     end
   end
 

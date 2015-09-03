@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   # protect_from_forgery with: :exception
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   rescue_from ActiveRecord::InvalidForeignKey, :with => :invalid_foreign_key
+  # rescue_from SupportHero::Unprocessable, :with => :unprocessable
 
   # fail softly on 404s. they're not necessarily a bad thing.
   def not_found
@@ -15,4 +16,7 @@ class ApplicationController < ActionController::API
     head :unprocessable_entity
   end
 
+  def unprocessable
+    head :unprocessable_entity
+  end
 end

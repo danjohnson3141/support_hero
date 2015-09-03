@@ -4,8 +4,8 @@ class HolidaysController < ApplicationController
 
   # GET /holidays
   def index
-    @holidays = Holiday.all
-    render json: @holidays
+    holidays = Holiday.all
+    render json: holidays
   end
 
   # GET /holidays/1
@@ -13,21 +13,25 @@ class HolidaysController < ApplicationController
     render json: @holiday
   end
 
+  # GET /holidays/year/:year
+  def year
+    holidays = Holiday.for_year(params[:year])
+    render json: holidays
+  end
+
   # POST /holidays
   def create
-    @holiday = Holiday.new(holiday_params)
+    holiday = Holiday.new(holiday_params)
 
-    if @holiday.save
-      render json: @holiday, status: :created
+    if holiday.save
+      render json: holiday, status: :created
     else
-      render json: @holiday.errors, status: :unprocessable_entity
+      render json: holiday.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /holidays/1
   def update
-    @holiday = Holiday.find(params[:id])
-
     if @holiday.update(holiday_params)
       head :no_content
     else

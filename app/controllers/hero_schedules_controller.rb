@@ -1,15 +1,25 @@
 class HeroSchedulesController < ApplicationController
   include ObjectSetters
-  before_action only: [:show, :update, :destroy] { set_object(Hero) }
+  before_action only: [:show, :update, :destroy] { set_object(HeroSchedule) }
 
   # GET /hero_schedules?start_date=yyyy-mm-dd&end_date=yyyy-mm-dd
   # start_date and end_date are optional constraints
   def index
     start_clause = params[:start_date].present? ? "scheduled_on >= '#{params[:start_date]}'" : nil
     end_clause = params[:end_date].present? ? "scheduled_on <= '#{params[:end_date]}'" : nil
-    @hero_schedules = HeroSchedule.where(start_clause).where(end_clause).all
+    hero_schedules = HeroSchedule.where(start_clause).where(end_clause).all
     
-    render json: @hero_schedules, each_serializer: HeroScheduleSerializer
+    render json: hero_schedules, each_serializer: HeroScheduleSerializer
+  end
+
+  # GET /hero_schedules/current/:unit_of_time
+  def current
+    unit_of_time = ['week', 'month', 'year']
+    head :unprocessable_entity and return unless unit_of_time.include? params[:unit_of_time]
+
+    hero_schedules = HeroSchedule.send(params[:unit_of_time])
+    
+    render json: hero_schedules, each_serializer: HeroScheduleSerializer
   end
 
   # GET /hero_schedules/1
@@ -19,12 +29,12 @@ class HeroSchedulesController < ApplicationController
 
   # POST /hero_schedules
   def create
-    @hero_schedule = HeroSchedule.new(hero_schedule_params)
+    hero_schedule = HeroSchedule.new(hero_schedule_params)
 
-    if @hero_schedule.save
-      render json: @hero_schedule, serializer: HeroScheduleSerializer, status: :created
+    if hero_schedule.save
+      render json: hero_schedule, serializer: HeroScheduleSerializer, status: :created
     else
-      render json: { errors: @hero_schedule.errors }, status: :unprocessable_entity
+      render json: { errors: hero_schedule.errors }, status: :unprocessable_entity
     end
   end
 
